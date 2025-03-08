@@ -9,7 +9,7 @@ def main(argv):
         sys.exit(1)
 
     #Collecting the data file
-    dataFile = argv[1]
+    dataFile = "../original_data_files/Job_Vacancies.csv"
     try:
         dataFile_fh = open(dataFile, encoding = "utf-8-sig")
     except TypeError:
@@ -21,6 +21,16 @@ def main(argv):
     for rowDataFeilds in dataFile_reader:
         REF_DATE = rowDataFeilds[0]    
         GEO = rowDataFeilds[1]
+        statistics = rowDataFeilds[3]
+        UOM = rowDataFeilds[4]
+        value = rowDataFeilds[10]
+
+        #Check to see if the month is may
+        if ("-05" in REF_DATE):
+            if statistics == "Job vacancies":
+                if UOM == "Number":
+                    print("%s,%s,%s,%s,%s" % (REF_DATE, GEO, statistics, UOM, value))
+
 
 
 main(sys.argv)
