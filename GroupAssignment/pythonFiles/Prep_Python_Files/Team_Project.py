@@ -42,17 +42,26 @@ source for path:
     in order to be able to access all of the nessasary files, and output 
     into the correct folder/right file
 
+Source for clearing a list 
+    by w3schools
+    accessed: March 8th 2025
+    Title: Python List clear() Method
+    http://w3schools.com/python/ref_list_clear.asp
+
+    We needed to clear the education level list, and the commuteTime list 
+    so they don't print out the same values for each row
+
 Source for checking the end of the string:
     by w3schools
     accessed March 9th 2025
     Title: "Python String endswith() Method"
     https://www.w3schools.com/python/ref_string_endswith.asp    
 
-    We needed to be able to check if the end of the string ended with .csv, because
-    we are prompting the user for the file name they want to input and the file
-    needs to end with .csv (this is for error handling)
-'''
+    We needed to be able to check if the end of the string ended with .csv, 
+    because we are prompting the user for the file name they want to input 
+    and the file needs to end with .csv (this is for error handling)
 
+'''
 '''
 References:
 https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1410037101
@@ -63,7 +72,7 @@ https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1310089101&cubeTimeFrame.s
 def main():
     user_choice = 0
     path = str(Path.cwd())
-    print("Welcome to _____")
+    print("Welcome Please select which type of file you want to collect the nessasary data from")
     while user_choice != -1:
         fileOutput = ""
         print("Option 1: Collect the nessisary datafiles from Job Vacancies file")
@@ -71,10 +80,10 @@ def main():
         print("Option 3: Collect the nessisary datafiles from the file for the comparison between not working due to an illness to Job Vacancies question")
         print("Option 4: Take out all of the unnessasary data in the average commute time file")
         temp_user_choice = input("Enter 1, 2, 3, 4, or -1 to exit: ")
-        if (temp_user_choice.isdigit()):
+        try:
             user_choice = int(temp_user_choice)
-        else:
-            print("*Error* Please enter only the number for each option i.e. either 1, 2, 3, or -1 to exit", file = sys.stderr)
+        except ValueError:
+            print("\n\n*Error* Please enter only the integer (Whole Number) for each option i.e. either 1, 2, 3, or -1 to exit\n\n", file = sys.stderr)
             sys.exit(1)
 
         
@@ -114,7 +123,7 @@ def main():
             commute(fileOutput)
 
         else:
-            print("*Error* Unrecognised option, please enter one of the specified options above.")
+            print("\n\n*Error* Unrecognised option, please enter one of the specified options above.\n\n")
 
     #   End of Function
 
@@ -181,13 +190,7 @@ def education(fileOutput):
                         print(f"{ref_Date},{geo},{statistics},{age},{sex},{educationLevel[0]},{educationLevel[1]}, {educationLevel[2]},{educationLevel[3]},{educationLevel[4]},{educationLevel[5]},{educationLevel[6]},"
                                 f"{educationLevel[7]},{educationLevel[8]},{educationLevel[9]},{educationLevel[10]},{educationLevel[11]},"
                                 f"{educationLevel[12]},{educationLevel[13]},{educationLevel[14]},{educationLevel[15]}" , file = fileOutput)
-                                    
-                            # elif(educationLevel == "No certificate, diploma or degree"):
-                            #     print("%s,%s,%s,%s,\"No certificate, diploma or degree\",%s,%s" % (ref_Date, geo, statistics, sex, UOM, value), file = fileOutput)
-                            # elif(educationLevel == "College, CEGEP or other non-university certificate or diploma"):
-                            #     print("%s,%s,%s,%s,\"College, CEGEP or other non-university certificate or diploma\",%s,%s" % (ref_Date, geo, statistics, sex, UOM, value), file = fileOutput)
-                            # else:
-                            #     print("%s,%s,%s,%s,%s,%s,%s" % (ref_Date, geo, statistics, sex, educationLevel, UOM, value), file = fileOutput)
+
         educationLevel.clear()
         rowNumber += 1
         
@@ -304,6 +307,7 @@ def commute(fileOutputLocation):
             commuteTime.append(rowDataFeilds[5])
             print(f"{ref_date},{commuteTime[0]},{commuteTime[1]},{commuteTime[2]},{commuteTime[3]},{commuteTime[4]}", file = fileOutput)
         lineNumber += 1
+        commuteTime.clear()
 
 main()
 # Call functions
