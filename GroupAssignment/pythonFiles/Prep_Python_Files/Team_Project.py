@@ -41,7 +41,18 @@ source for path:
     We needed to be able to access what the current working derectory is 
     in order to be able to access all of the nessasary files, and output 
     into the correct folder/right file
+
+Source for checking the end of the string:
+    by w3schools
+    accessed March 9th 2025
+    Title: "Python String endswith() Method"
+    https://www.w3schools.com/python/ref_string_endswith.asp    
+
+    We needed to be able to check if the end of the string ended with .csv, because
+    we are prompting the user for the file name they want to input and the file
+    needs to end with .csv (this is for error handling)
 '''
+
 '''
 References:
 https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1410037101
@@ -50,45 +61,57 @@ https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=9810038601
 https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1310089101&cubeTimeFrame.startYear=2017&cubeTimeFrame.endYear=2022&referencePeriods=20170101%2C20220101 
 '''
 def main():
-    lineNumber = 0
     user_choice = 0
     path = str(Path.cwd())
-    print("Welcome to Jakarta's job vacancies data questions\n")
+    print("Welcome to _____")
     while user_choice != -1:
         fileOutput = ""
-        print("Option 1: Do job vacancies affect the average commute time across the provinces?")
-        print("Option 2: Do regions with lower education levels have differing job vacancy rates compared to regions with higher education rates?")
-        print("Option 3: What is the correlation between people with disabilities who are unable to find work and the amount of job vacancies?")
-        user_choice = int(input("Enter 1, 2, 3, or -1 to exit:"))
+        print("Option 1: Collect the nessisary datafiles from Job Vacancies file")
+        print("Option 2: Collect the nessisary datafiles from Highest Education Level file")
+        print("Option 3: Collect the nessisary datafiles from the file for the comparison between not working due to an illness to Job Vacancies question")
+        print("Option 4: Take out all of the unnessasary data in the average commute time file")
+        temp_user_choice = input("Enter 1, 2, 3, 4, or -1 to exit: ")
+        if (temp_user_choice.isdigit()):
+            user_choice = int(temp_user_choice)
+        else:
+            print("*Error* Please enter only the number for each option i.e. either 1, 2, 3, or -1 to exit", file = sys.stderr)
+            sys.exit(1)
+
+        
         if user_choice == -1:
             print("\n\nExiting.......\n\n")
             break
         elif user_choice == 1:
-            print("\nCollect the necessary datafiles from Job Vacancies file")
-            while(".csv" not in fileOutput):
-                fileOutput = input("Please enter the file name you would like to print in ")
-                if(".csv" not in fileOutput):
+            while(not fileOutput.endswith(".csv")):
+                fileOutput = input("Please enter the file name you would like to print in: ")
+                if(not fileOutput.endswith(".csv")):
                     print("*Error* This you did not enter a csv file")
             fileOutput = path + "/../../data_fields_from_data_files/" + fileOutput
             jobVacancies(fileOutput)
 
         elif user_choice == 2:
-            print("\nCollect the necessary datafiles from Highest Education Level file")
-            while(".csv" not in fileOutput):
-                fileOutput = input("Please enter the file name you would like to print in ")
-                if(".csv" not in fileOutput):
+            while(not fileOutput.endswith(".csv")):
+                fileOutput = input("Please enter the file name you would like to print in: ")
+                if(not fileOutput.endswith(".csv")):
                     print("*Error* This you did not enter a csv file")
             fileOutput = path + "/../../data_fields_from_data_files/" + fileOutput
             education(fileOutput)
 
         elif user_choice == 3:
-            print("\nCollect the necessary datafiles from the file for the comparison between not working due to an illness to Job Vacancies question")
-            while(".csv" not in fileOutput):
-                fileOutput = input("Please enter the file name you would like to print in ")
-                if(".csv" not in fileOutput):
+            while(not fileOutput.endswith(".csv")):
+                fileOutput = input("Please enter the file name you would like to print in: ")
+                if(not fileOutput.endswith(".csv")):
                     print("*Error* This you did not enter a csv file")
             fileOutput = path + "/../../data_fields_from_data_files/" + fileOutput
             disabilites(fileOutput)
+        
+        elif user_choice == 4:
+            while(not fileOutput.endswith(".csv")):
+                fileOutput = input("Please enter the file name you would like to print in: ")
+                if(not fileOutput.endswith(".csv")):
+                    print("*Error* This you did not enter a csv file")
+            fileOutput = path + "/../../data_fields_from_data_files/" + fileOutput
+            commute(fileOutput)
 
         else:
             print("*Error* Unrecognised option, please enter one of the specified options above.")
@@ -115,8 +138,6 @@ def education(fileOutput):
     #looping through the entire data file to print the needed feilds into a different file
     for row_data_fields in dataFile_reader:
         if (row_data_fields):
-            # print (row_data_fields)
-            # print("hi")
             ref_Date = row_data_fields[0]    
             geo = row_data_fields[1]
             geo = "\"" + geo + "\""
@@ -171,14 +192,14 @@ def education(fileOutput):
         rowNumber += 1
         
 
-def disabilites(fileOutput):
+def disabilites(fileOutputLocation):
     path = str(Path.cwd())
     lineNumber = 0
     #Collecting the data file
     dataFile = path +  "/../../original_data_files/Reasons_Not_Looking_For_Work.csv"
     try:
         dataFile_fh = open(dataFile, encoding = "utf-8-sig")
-        fileOutput = open(fileOutput, "w", encoding= "utf-8-sig")
+        fileOutput = open(fileOutputLocation, "w", encoding= "utf-8-sig")
     except TypeError:
         print("*Error* could not open file\n %s\n please enter a different file" % (dataFile), file = sys.stderr)
         sys.exit(1)
@@ -218,14 +239,14 @@ def disabilites(fileOutput):
 #This file is to collect the needed data feilds from each data file
 import sys
 import csv
-def jobVacancies(fileOutput):
+def jobVacancies(fileOutputLocation):
     lineNumber = 0
     path = str(Path.cwd())
     #Collecting the data file
     dataFile = path + "/../../original_data_files/Job_Vacancies.csv"
     try:
         dataFile_fh = open(dataFile, encoding = "utf-8-sig")
-        fileOutput = open(fileOutput, "w", encoding= "utf-8-sig")
+        fileOutput = open(fileOutputLocation, "w", encoding = "utf-8-sig")
     except TypeError:
         print("*Error* could not open file\n %s\n please enter a different file" % (dataFile), file = sys.stderr)
         sys.exit(1)
@@ -250,7 +271,39 @@ def jobVacancies(fileOutput):
                             print("%s,%s,%s,%s,%s" % (ref_Date, geo, statistics, UOM, value), file = fileOutput)
         lineNumber += 1
 
-
+def commute(fileOutputLocation):
+    path = str(Path.cwd())
+     #Collecting the data file
+    dataFile = path + "/../../original_data_files/Average_Commute_Time.csv"
+    lineNumber = 0
+    commuteTime = []
+    year = []
+    try:
+        dataFile_fh = open(dataFile, encoding = "utf-8-sig")
+        fileOutput = open(fileOutputLocation, "w", encoding = "utf-8-sig")
+    except TypeError:
+        print("*Error* could not open file\n %s\n please enter a different file" % (dataFile), file = sys.stderr())
+        sys.exit(1)
+    dataFile_reader = csv.reader(dataFile_fh)
+ 
+     #looping through the entire data file to print the needed feilds into a different file
+    for rowDataFeilds in dataFile_reader:
+        if lineNumber == 1:
+            year.append(rowDataFeilds[1])
+            year.append(rowDataFeilds[2])
+            year.append(rowDataFeilds[3])
+            year.append(rowDataFeilds[4])
+            year.append(rowDataFeilds[5])
+            print(f"Geographical Location,{year[0]},{year[1]},{year[2]},{year[3]},{year[4]}", file = fileOutput)
+        elif lineNumber in range (3,14):
+            ref_date = rowDataFeilds[0]    
+            commuteTime.append(rowDataFeilds[1])
+            commuteTime.append(rowDataFeilds[2])
+            commuteTime.append(rowDataFeilds[3])
+            commuteTime.append(rowDataFeilds[4])
+            commuteTime.append(rowDataFeilds[5])
+            print(f"{ref_date},{commuteTime[0]},{commuteTime[1]},{commuteTime[2]},{commuteTime[3]},{commuteTime[4]}", file = fileOutput)
+        lineNumber += 1
 
 main()
 # Call functions
