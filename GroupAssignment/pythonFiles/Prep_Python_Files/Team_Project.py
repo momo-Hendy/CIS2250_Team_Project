@@ -53,17 +53,18 @@ def main():
     lineNumber = 0
     user_choice = 0
     path = str(Path.cwd())
-    print("Welcome to _____")
+    print("Welcome to Jakarta's job vacancies data questions\n")
     while user_choice != -1:
         fileOutput = ""
-        print("Option 1: Collect the nessisary datafiles from Job Vacancies file")
-        print("Option 2: Collect the nessisary datafiles from Highest Education Level file")
-        print("Option 3: Collect the nessisary datafiles from the file for the comparison between not working due to an illness to Job Vacancies question")
+        print("Option 1: Do job vacancies affect the average commute time across the provinces?")
+        print("Option 2: Do regions with lower education levels have differing job vacancy rates compared to regions with higher education rates?")
+        print("Option 3: What is the correlation between people with disabilities who are unable to find work and the amount of job vacancies?")
         user_choice = int(input("Enter 1, 2, 3, or -1 to exit:"))
         if user_choice == -1:
             print("\n\nExiting.......\n\n")
             break
         elif user_choice == 1:
+            print("\nCollect the necessary datafiles from Job Vacancies file")
             while(".csv" not in fileOutput):
                 fileOutput = input("Please enter the file name you would like to print in ")
                 if(".csv" not in fileOutput):
@@ -72,6 +73,7 @@ def main():
             jobVacancies(fileOutput)
 
         elif user_choice == 2:
+            print("\nCollect the necessary datafiles from Highest Education Level file")
             while(".csv" not in fileOutput):
                 fileOutput = input("Please enter the file name you would like to print in ")
                 if(".csv" not in fileOutput):
@@ -80,6 +82,7 @@ def main():
             education(fileOutput)
 
         elif user_choice == 3:
+            print("\nCollect the necessary datafiles from the file for the comparison between not working due to an illness to Job Vacancies question")
             while(".csv" not in fileOutput):
                 fileOutput = input("Please enter the file name you would like to print in ")
                 if(".csv" not in fileOutput):
