@@ -178,19 +178,21 @@ def education(fileOutput):
             desiredAge = "Total - Age"
 
             if(rowNumber == 0):
-                print("%s,%s,%s,%s,%s,\"Total - Highest certificate, diploma or degree\",\"No certificate, diploma or degree\",\"High (secondary) school diploma or equivalency certificate\","
-                "\"Postsecondary certificate, diploma or degree\",\"Postsecondary certificate or diploma below bachelor level\",\"Apprenticeship or trades certificate or diploma\",\"Non-apprenticeship trades certificate or diploma\","
-                    "\"Apprenticeship certificate\",\"College, CEGEP or other non-university certificate or diploma\",\"University certificate or diploma below bachelor level\","
-                    "\"Bachelor’s degree or higher\",\"Bachelor's degree\",\"University certificate or diploma above bachelor level\",\"Degree in medicine, dentistry, veterinary medicine or optometry\","
-                    "\"Master's degree\",\"Earned doctorate\"" 
-                % (ref_Date, geo, statistics, age, sex), file = fileOutput)
+                print("%s,%s,%s,%s,%s,\"No certificate, diploma or degree\",\"High (secondary) school diploma or equivalency certificate\","
+                "\"All trades\",\"Postsecondary\"" % (ref_Date, geo, statistics, age, sex), file = fileOutput)
             elif (statistics == stats):
+                educationLevel = [int(num) for num in educationLevel]
+
+                noEd = educationLevel[1]
+                secondaryEd = educationLevel[2]
+                trades = educationLevel[5] + educationLevel[6] + educationLevel[7]
+                # noEd = int(noEd)
+                # trades = int(trades)
+                # secondaryEd = int(secondaryEd)  
+                postSecEd = educationLevel[0] - noEd - trades - secondaryEd
                 if(age == desiredAge):
                     if (sex == desiredSex):
-                        print(f"{ref_Date},{geo},{statistics},{age},{sex},{educationLevel[0]},{educationLevel[1]}, {educationLevel[2]},{educationLevel[3]},{educationLevel[4]},{educationLevel[5]},{educationLevel[6]},"
-                                f"{educationLevel[7]},{educationLevel[8]},{educationLevel[9]},{educationLevel[10]},{educationLevel[11]},"
-                                f"{educationLevel[12]},{educationLevel[13]},{educationLevel[14]},{educationLevel[15]}" , file = fileOutput)
-
+                        print(f"{ref_Date},{geo},{statistics},{age},{sex},{noEd},{secondaryEd}, {trades},{postSecEd}" , file = fileOutput)
         educationLevel.clear()
         rowNumber += 1
         
