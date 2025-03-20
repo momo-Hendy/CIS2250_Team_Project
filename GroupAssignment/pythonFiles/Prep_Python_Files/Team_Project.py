@@ -1,13 +1,20 @@
 '''
 Team_project.py
 
-Author(s):  Wyatt Evans 1293147, Harveen Harveen 1337280, Mohamed Hendy 1332794, Indigo Asher 1348315
+Author(s):  Wyatt Evans 1293147, Harveen Harveen 1337280, Indigo Asher 1348315
 
-Project:
-Date of Last Update:
+Project: Milestone II
+Date of Last Update: March 7th 2025
 
 Functional Summary
-    
+    This file calls a few files, that are given in the original_data_files folder and collects only the nessasary information
+    that is required to answer our questions that were made in Milestone I
+
+    When collecting the files that will take in the nessasary data the code goes to the current working directory (The one this file is in)
+    then leaves this file, to go find the corrisponding file that is needed to collect the data for the option chosen by the user
+
+    It will then prompt the user for the filename they would like the collected data to go to, and it requires them to 
+    input a csv file for output
 '''
 
 #
@@ -94,7 +101,7 @@ def main():
             while(not fileOutput.endswith(".csv")):
                 fileOutput = input("Please enter the file name you would like to print in: ")
                 if(not fileOutput.endswith(".csv")):
-                    print("*Error* This you did not enter a csv file")
+                    print("*Error* You did not enter a csv file")
             fileOutput = path + "/../../data_fields_from_data_files/" + fileOutput
             jobVacancies(fileOutput)
 
@@ -102,7 +109,7 @@ def main():
             while(not fileOutput.endswith(".csv")):
                 fileOutput = input("Please enter the file name you would like to print in: ")
                 if(not fileOutput.endswith(".csv")):
-                    print("*Error* This you did not enter a csv file")
+                    print("*Error* You did not enter a csv file")
             fileOutput = path + "/../../data_fields_from_data_files/" + fileOutput
             education(fileOutput)
 
@@ -110,7 +117,7 @@ def main():
             while(not fileOutput.endswith(".csv")):
                 fileOutput = input("Please enter the file name you would like to print in: ")
                 if(not fileOutput.endswith(".csv")):
-                    print("*Error* This you did not enter a csv file")
+                    print("*Error* You did not enter a csv file")
             fileOutput = path + "/../../data_fields_from_data_files/" + fileOutput
             disabilites(fileOutput)
         
@@ -118,7 +125,7 @@ def main():
             while(not fileOutput.endswith(".csv")):
                 fileOutput = input("Please enter the file name you would like to print in: ")
                 if(not fileOutput.endswith(".csv")):
-                    print("*Error* This you did not enter a csv file")
+                    print("*Error* You did not enter a csv file")
             fileOutput = path + "/../../data_fields_from_data_files/" + fileOutput
             commute(fileOutput)
 
@@ -143,13 +150,12 @@ def education(fileOutput):
         sys.exit(1)
 
     dataFile_reader = csv.reader(dataFile_fh)
-    
+    canada = "Canada"
     #looping through the entire data file to print the needed feilds into a different file
     for row_data_fields in dataFile_reader:
         if (row_data_fields):
             ref_Date = row_data_fields[0]    
             geo = row_data_fields[1]
-            geo = "\"" + geo + "\""
             statistics = row_data_fields[3]
             age = row_data_fields[4]
             sex = row_data_fields[5]
@@ -178,21 +184,31 @@ def education(fileOutput):
             desiredAge = "Total - Age"
 
             if(rowNumber == 0):
-                print("%s,%s,%s,%s,%s,\"No certificate, diploma or degree\",\"High (secondary) school diploma or equivalency certificate\","
-                "\"All trades\",\"Postsecondary\"" % (ref_Date, geo, statistics, age, sex), file = fileOutput)
+                print("%s,%s,%s,%s,%s, Education Level, Value"% (ref_Date, geo, statistics, age, sex), file = fileOutput)
             elif (statistics == stats):
-                educationLevel = [int(num) for num in educationLevel]
-
-                noEd = educationLevel[1]
-                secondaryEd = educationLevel[2]
-                trades = educationLevel[5] + educationLevel[6] + educationLevel[7]
-                # noEd = int(noEd)
-                # trades = int(trades)
-                # secondaryEd = int(secondaryEd)  
-                postSecEd = educationLevel[0] - noEd - trades - secondaryEd
                 if(age == desiredAge):
                     if (sex == desiredSex):
-                        print(f"{ref_Date},{geo},{statistics},{age},{sex},{noEd},{secondaryEd}, {trades},{postSecEd}" , file = fileOutput)
+                        if(geo == "Canada" or geo == "Newfoundland and Labrador" or geo == "Prince Edward Island" or geo == "Nova Scotia" or
+                           geo == "New Bruswick" or geo == "Quebec" or geo == "Ontario" or geo == "Manitoba" or geo == "Saskatchewan" or
+                           geo == "Alberta" or geo == "British Columbia" or geo == "Yukon" or geo == "Northwest Territories" or geo == "Nunavut"):
+                        
+                            print(f"{ref_Date},{geo},{statistics},{age},{sex},\"Total - Highest certificate, diploma or degree\",{educationLevel[0]}\n"
+                                    f"{ref_Date},{geo},{statistics},{age},{sex},\"No certificate, diploma or degree\",{educationLevel[1]}\n"
+                                    f"{ref_Date},{geo},{statistics},{age},{sex},\"High (secondary) school diploma or equivalency certificate\",{educationLevel[2]}\n"
+                                    f"{ref_Date},{geo},{statistics},{age},{sex},\"Postsecondary certificate, diploma or degree\",{educationLevel[3]}\n"
+                                    f"{ref_Date},{geo},{statistics},{age},{sex},\"Postsecondary certificate or diploma below bachelor level\",{educationLevel[4]}\n"
+                                    f"{ref_Date},{geo},{statistics},{age},{sex},\"Apprenticeship or trades certificate or diploma\",{educationLevel[5]}\n"
+                                    f"{ref_Date},{geo},{statistics},{age},{sex},\"Non-apprenticeship trades certificate or diploma\",{educationLevel[6]}\n"
+                                    f"{ref_Date},{geo},{statistics},{age},{sex},\"Apprenticeship certificate\",{educationLevel[7]}\n"
+                                    f"{ref_Date},{geo},{statistics},{age},{sex},\"College, CEGEP or other non-university certificate or diploma\",{educationLevel[8]}\n"
+                                    f"{ref_Date},{geo},{statistics},{age},{sex},\"University certificate or diploma below bachelor level\",{educationLevel[9]}\n"
+                                    f"{ref_Date},{geo},{statistics},{age},{sex},\"Bachelor’s degree or higher\",{educationLevel[10]}\n"
+                                    f"{ref_Date},{geo},{statistics},{age},{sex},\"Bachelor's degree\",{educationLevel[11]}\n"
+                                    f"{ref_Date},{geo},{statistics},{age},{sex},\"University certificate or diploma above bachelor level\",{educationLevel[12]}\n"
+                                    f"{ref_Date},{geo},{statistics},{age},{sex},\"Degree in medicine, dentistry, veterinary medicine or optometry\",{educationLevel[13]}\n"
+                                    f"{ref_Date},{geo},{statistics},{age},{sex},\"Master's degree\",{educationLevel[14]}\n"
+                                    f"{ref_Date},{geo},{statistics},{age},{sex},\"Earned doctorate\",{educationLevel[15]}" , file = fileOutput)
+
         educationLevel.clear()
         rowNumber += 1
         
@@ -299,7 +315,7 @@ def commute(fileOutputLocation):
             year.append(rowDataFeilds[3])
             year.append(rowDataFeilds[4])
             year.append(rowDataFeilds[5])
-            print(f"Geographical Location,{year[0]},{year[1]},{year[2]},{year[3]},{year[4]}", file = fileOutput)
+            print(f"GEO,Year,VALUE", file = fileOutput)
         elif lineNumber in range (3,14):
             ref_date = rowDataFeilds[0]    
             commuteTime.append(rowDataFeilds[1])
@@ -307,7 +323,9 @@ def commute(fileOutputLocation):
             commuteTime.append(rowDataFeilds[3])
             commuteTime.append(rowDataFeilds[4])
             commuteTime.append(rowDataFeilds[5])
-            print(f"{ref_date},{commuteTime[0]},{commuteTime[1]},{commuteTime[2]},{commuteTime[3]},{commuteTime[4]}", file = fileOutput)
+            print(f"{rowDataFeilds[0]},{year[1]},{commuteTime[1]}\n{rowDataFeilds[0]},{year[2]},{commuteTime[2]}\n"
+                  f"{rowDataFeilds[0]},{year[3]},{commuteTime[3]}\n{rowDataFeilds[0]},{year[4]},{commuteTime[4]}", file = fileOutput)
+           
         lineNumber += 1
         commuteTime.clear()
 
