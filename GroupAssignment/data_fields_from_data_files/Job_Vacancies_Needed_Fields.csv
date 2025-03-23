@@ -1,4 +1,169 @@
 ﻿REF_DATE,GEO,Statistics,UOM,VALUE
+2017-01,Canada,Job vacancies,Number,346495
+2017-01,Newfoundland and Labrador,Job vacancies,Number,3120
+2017-01,Prince Edward Island,Job vacancies,Number,960
+2017-01,Nova Scotia,Job vacancies,Number,6335
+2017-01,New Brunswick,Job vacancies,Number,5750
+2017-01,Quebec,Job vacancies,Number,57545
+2017-01,Ontario,Job vacancies,Number,151645
+2017-01,Manitoba,Job vacancies,Number,9720
+2017-01,Saskatchewan,Job vacancies,Number,7080
+2017-01,Alberta,Job vacancies,Number,39545
+2017-01,British Columbia,Job vacancies,Number,63250
+2017-01,Yukon,Job vacancies,Number,395
+2017-01,Nunavut,Job vacancies,Number,200
+2017-02,Canada,Job vacancies,Number,360685
+2017-02,Newfoundland and Labrador,Job vacancies,Number,2540
+2017-02,Prince Edward Island,Job vacancies,Number,860
+2017-02,Nova Scotia,Job vacancies,Number,6085
+2017-02,New Brunswick,Job vacancies,Number,4620
+2017-02,Quebec,Job vacancies,Number,61830
+2017-02,Ontario,Job vacancies,Number,158415
+2017-02,Manitoba,Job vacancies,Number,9120
+2017-02,Saskatchewan,Job vacancies,Number,7180
+2017-02,Alberta,Job vacancies,Number,45760
+2017-02,British Columbia,Job vacancies,Number,63260
+2017-02,Yukon,Job vacancies,Number,330
+2017-02,Northwest Territories,Job vacancies,Number,495
+2017-02,Nunavut,Job vacancies,Number,190
+2017-03,Canada,Job vacancies,Number,438375
+2017-03,Newfoundland and Labrador,Job vacancies,Number,2925
+2017-03,Prince Edward Island,Job vacancies,Number,1025
+2017-03,Nova Scotia,Job vacancies,Number,8655
+2017-03,New Brunswick,Job vacancies,Number,5560
+2017-03,Quebec,Job vacancies,Number,75775
+2017-03,Ontario,Job vacancies,Number,194155
+2017-03,Manitoba,Job vacancies,Number,13570
+2017-03,Saskatchewan,Job vacancies,Number,10210
+2017-03,Alberta,Job vacancies,Number,45155
+2017-03,British Columbia,Job vacancies,Number,80005
+2017-03,Yukon,Job vacancies,Number,415
+2017-03,Northwest Territories,Job vacancies,Number,465
+2017-04,Canada,Job vacancies,Number,466590
+2017-04,Newfoundland and Labrador,Job vacancies,Number,4340
+2017-04,Prince Edward Island,Job vacancies,Number,2370
+2017-04,Nova Scotia,Job vacancies,Number,10150
+2017-04,New Brunswick,Job vacancies,Number,9895
+2017-04,Quebec,Job vacancies,Number,83400
+2017-04,Ontario,Job vacancies,Number,185475
+2017-04,Manitoba,Job vacancies,Number,14110
+2017-04,Saskatchewan,Job vacancies,Number,12040
+2017-04,Alberta,Job vacancies,Number,49360
+2017-04,British Columbia,Job vacancies,Number,93515
+2017-04,Yukon,Job vacancies,Number,795
+2017-04,Northwest Territories,Job vacancies,Number,890
+2017-04,Nunavut,Job vacancies,Number,255
+2017-05,Canada,Job vacancies,Number,466515
+2017-05,Newfoundland and Labrador,Job vacancies,Number,3375
+2017-05,Prince Edward Island,Job vacancies,Number,1400
+2017-05,Nova Scotia,Job vacancies,Number,10260
+2017-05,New Brunswick,Job vacancies,Number,7170
+2017-05,Quebec,Job vacancies,Number,82935
+2017-05,Ontario,Job vacancies,Number,195680
+2017-05,Manitoba,Job vacancies,Number,13375
+2017-05,Saskatchewan,Job vacancies,Number,9895
+2017-05,Alberta,Job vacancies,Number,56755
+2017-05,British Columbia,Job vacancies,Number,83845
+2017-05,Yukon,Job vacancies,Number,815
+2017-05,Northwest Territories,Job vacancies,Number,620
+2017-05,Nunavut,Job vacancies,Number,390
+2017-06,Canada,Job vacancies,Number,438060
+2017-06,Newfoundland and Labrador,Job vacancies,Number,3805
+2017-06,Prince Edward Island,Job vacancies,Number,2500
+2017-06,Nova Scotia,Job vacancies,Number,9575
+2017-06,New Brunswick,Job vacancies,Number,7685
+2017-06,Quebec,Job vacancies,Number,84850
+2017-06,Ontario,Job vacancies,Number,171700
+2017-06,Manitoba,Job vacancies,Number,15055
+2017-06,Saskatchewan,Job vacancies,Number,11450
+2017-06,Alberta,Job vacancies,Number,49220
+2017-06,British Columbia,Job vacancies,Number,80970
+2017-06,Yukon,Job vacancies,Number,540
+2017-06,Northwest Territories,Job vacancies,Number,485
+2017-06,Nunavut,Job vacancies,Number,225
+2017-07,Canada,Job vacancies,Number,434595
+2017-07,Newfoundland and Labrador,Job vacancies,Number,3025
+2017-07,Prince Edward Island,Job vacancies,Number,1340
+2017-07,Nova Scotia,Job vacancies,Number,7500
+2017-07,New Brunswick,Job vacancies,Number,6890
+2017-07,Quebec,Job vacancies,Number,78735
+2017-07,Ontario,Job vacancies,Number,174870
+2017-07,Manitoba,Job vacancies,Number,12325
+2017-07,Saskatchewan,Job vacancies,Number,9165
+2017-07,Alberta,Job vacancies,Number,47530
+2017-07,British Columbia,Job vacancies,Number,91495
+2017-07,Yukon,Job vacancies,Number,610
+2017-07,Northwest Territories,Job vacancies,Number,880
+2017-07,Nunavut,Job vacancies,Number,235
+2017-08,Canada,Job vacancies,Number,447225
+2017-08,Newfoundland and Labrador,Job vacancies,Number,3450
+2017-08,Prince Edward Island,Job vacancies,Number,1850
+2017-08,Nova Scotia,Job vacancies,Number,13880
+2017-08,New Brunswick,Job vacancies,Number,7250
+2017-08,Quebec,Job vacancies,Number,86595
+2017-08,Ontario,Job vacancies,Number,172745
+2017-08,Manitoba,Job vacancies,Number,11205
+2017-08,Saskatchewan,Job vacancies,Number,9345
+2017-08,Alberta,Job vacancies,Number,56570
+2017-08,British Columbia,Job vacancies,Number,82615
+2017-08,Yukon,Job vacancies,Number,725
+2017-08,Northwest Territories,Job vacancies,Number,455
+2017-08,Nunavut,Job vacancies,Number,550
+2017-09,Canada,Job vacancies,Number,518780
+2017-09,Newfoundland and Labrador,Job vacancies,Number,3545
+2017-09,Prince Edward Island,Job vacancies,Number,2415
+2017-09,Nova Scotia,Job vacancies,Number,9210
+2017-09,New Brunswick,Job vacancies,Number,8295
+2017-09,Quebec,Job vacancies,Number,96525
+2017-09,Ontario,Job vacancies,Number,208695
+2017-09,Manitoba,Job vacancies,Number,16935
+2017-09,Saskatchewan,Job vacancies,Number,10800
+2017-09,Alberta,Job vacancies,Number,57130
+2017-09,British Columbia,Job vacancies,Number,103510
+2017-09,Yukon,Job vacancies,Number,810
+2017-09,Northwest Territories,Job vacancies,Number,550
+2017-10,Canada,Job vacancies,Number,484955
+2017-10,Newfoundland and Labrador,Job vacancies,Number,3005
+2017-10,Prince Edward Island,Job vacancies,Number,1585
+2017-10,Nova Scotia,Job vacancies,Number,9495
+2017-10,New Brunswick,Job vacancies,Number,7010
+2017-10,Quebec,Job vacancies,Number,93380
+2017-10,Ontario,Job vacancies,Number,202400
+2017-10,Manitoba,Job vacancies,Number,12150
+2017-10,Saskatchewan,Job vacancies,Number,9735
+2017-10,Alberta,Job vacancies,Number,51135
+2017-10,British Columbia,Job vacancies,Number,93480
+2017-10,Yukon,Job vacancies,Number,645
+2017-10,Northwest Territories,Job vacancies,Number,680
+2017-10,Nunavut,Job vacancies,Number,250
+2017-11,Canada,Job vacancies,Number,493215
+2017-11,Newfoundland and Labrador,Job vacancies,Number,4205
+2017-11,Prince Edward Island,Job vacancies,Number,910
+2017-11,Nova Scotia,Job vacancies,Number,9880
+2017-11,New Brunswick,Job vacancies,Number,6360
+2017-11,Quebec,Job vacancies,Number,104575
+2017-11,Ontario,Job vacancies,Number,199765
+2017-11,Manitoba,Job vacancies,Number,11800
+2017-11,Saskatchewan,Job vacancies,Number,8755
+2017-11,Alberta,Job vacancies,Number,61450
+2017-11,British Columbia,Job vacancies,Number,84775
+2017-11,Yukon,Job vacancies,Number,210
+2017-11,Northwest Territories,Job vacancies,Number,335
+2017-11,Nunavut,Job vacancies,Number,195
+2017-12,Canada,Job vacancies,Number,417505
+2017-12,Newfoundland and Labrador,Job vacancies,Number,2385
+2017-12,Prince Edward Island,Job vacancies,Number,1160
+2017-12,Nova Scotia,Job vacancies,Number,8425
+2017-12,New Brunswick,Job vacancies,Number,5815
+2017-12,Quebec,Job vacancies,Number,81845
+2017-12,Ontario,Job vacancies,Number,165200
+2017-12,Manitoba,Job vacancies,Number,14250
+2017-12,Saskatchewan,Job vacancies,Number,8570
+2017-12,Alberta,Job vacancies,Number,43675
+2017-12,British Columbia,Job vacancies,Number,84655
+2017-12,Yukon,Job vacancies,Number,570
+2017-12,Northwest Territories,Job vacancies,Number,585
+2017-12,Nunavut,Job vacancies,Number,370
 2021-01,Canada,Job vacancies,Number,495540
 2021-01,Newfoundland and Labrador,Job vacancies,Number,3220
 2021-01,Prince Edward Island,Job vacancies,Number,1605

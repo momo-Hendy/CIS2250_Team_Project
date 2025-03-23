@@ -1,7 +1,7 @@
-﻿REF_DATE,GEO,Reasons not looking for work,Estimates,UOM,VALUE
-2017,Canada,"Total, not in the labour force",Number of persons,Number,1457780
-2017,Canada"Wanted work, reason - illness",Number of persons,Number,132620
-2017,Canada,Not in the labour force and did not want work or not available,Number of persons,Number,1216510
-2022,Canada,"Total, not in the labour force",Number of persons,Number,1690960
-2022,Canada"Wanted work, reason - illness",Number of persons,Number,101290
-2022,Canada,Not in the labour force and did not want work or not available,Number of persons,Number,1483520
+﻿REF_DATE,GEO,Reasons not looking for work,VALUE
+2017,Canada,"Total, not in the labour force",1457780
+2017,Canada,"Wanted work , reason - illness",132620
+2017,Canada,Not in the labour force and did not want work or not available,1216510
+2022,Canada,"Total, not in the labour force",1690960
+2022,Canada,"Wanted work , reason - illness",101290
+2022,Canada,Not in the labour force and did not want work or not available,1483520
