@@ -1,12 +1,45 @@
-﻿Geographical Location, May 2016, May 2021, May 2022, May 2023, May 2024
-Canada,26.3,23.9,24.9,25.7,26.4
-Newfoundland  and Labrador,20.6,18.7,20.4,23.0,23.2
-Prince  Edward Island,18.1,17.9,15.9,18.6,17.9
-Nova  Scotia,22.3,20.7,21.9,22.6,23.8
-New  Brunswick,19.0,18.4,19.2,19.3,20.6
-Quebec,25.9,23.7,25.2,25.3,25.3
-Ontario,28.9,25.9,26.4,27.4,29.0
-Manitoba,22.6,21.2,22.5,22.9,22.1
-Saskatchewan,18.9,18.2,18.6,17.5,19.8
-Alberta,25.0,23.1,24.6,25.6,25.2
-British  Columbia,26.0,24.1,25.2,26.3,26.6
+﻿GEO,Year,VALUE
+Canada, May 2021,23.9
+Canada, May 2022,24.9
+Canada, May 2023,25.7
+Canada, May 2024,26.4
+Newfoundland  and Labrador, May 2021,18.7
+Newfoundland  and Labrador, May 2022,20.4
+Newfoundland  and Labrador, May 2023,23.0
+Newfoundland  and Labrador, May 2024,23.2
+Prince  Edward Island, May 2021,17.9
+Prince  Edward Island, May 2022,15.9
+Prince  Edward Island, May 2023,18.6
+Prince  Edward Island, May 2024,17.9
+Nova  Scotia, May 2021,20.7
+Nova  Scotia, May 2022,21.9
+Nova  Scotia, May 2023,22.6
+Nova  Scotia, May 2024,23.8
+New  Brunswick, May 2021,18.4
+New  Brunswick, May 2022,19.2
+New  Brunswick, May 2023,19.3
+New  Brunswick, May 2024,20.6
+Quebec, May 2021,23.7
+Quebec, May 2022,25.2
+Quebec, May 2023,25.3
+Quebec, May 2024,25.3
+Ontario, May 2021,25.9
+Ontario, May 2022,26.4
+Ontario, May 2023,27.4
+Ontario, May 2024,29.0
+Manitoba, May 2021,21.2
+Manitoba, May 2022,22.5
+Manitoba, May 2023,22.9
+Manitoba, May 2024,22.1
+Saskatchewan, May 2021,18.2
+Saskatchewan, May 2022,18.6
+Saskatchewan, May 2023,17.5
+Saskatchewan, May 2024,19.8
+Alberta, May 2021,23.1
+Alberta, May 2022,24.6
+Alberta, May 2023,25.6
+Alberta, May 2024,25.2
+British  Columbia, May 2021,24.1
+British  Columbia, May 2022,25.2
+British  Columbia, May 2023,26.3
+British  Columbia, May 2024,26.6
