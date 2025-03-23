@@ -53,36 +53,35 @@ def main():
             break
         elif user_choice == 1:
             print("\nChoose Question:\n")
-            while user_choice != -1:
-                fileOutput = ""
-                print("Option 1: Do job vacancies affect the average commute time across the provinces?")
-                print("Option 2: Do regions with lower education levels have differing job vacancy rates compared to regions with higher education rates?")
-                print("Option 3: What is the correlation between people with disabilities who are unable to find work and the amount of job vacancies?")
+           
+            print("Option 1: Do job vacancies affect the average commute time across the provinces?")
+            print("Option 2: Do regions with lower education levels have differing job vacancy rates compared to regions with higher education rates?")
+            print("Option 3: What is the correlation between people with disabilities who are unable to find work and the amount of job vacancies?")
                 
-                temp_user_choice2 = input("Enter 1, 2, 3, or -1 to exit: ")
-                try:
-                    user_choice2 = int(temp_user_choice2)
-                except ValueError:
-                    print("\n\n*Error* Please enter only the integer (Whole Number) for each option i.e. either 1, 2, 3, or -1 to exit\n\n", file = sys.stderr)
-                    sys.exit(1)
+            temp_user_choice2 = input("Enter 1, 2, or 3: ")
+            try:
+                user_choice2 = int(temp_user_choice2)
+            except ValueError:
+                print("\n\n*Error* Please enter only the integer (Whole Number) for each option i.e. either 1, 2, 3, or -1 to exit\n\n", file = sys.stderr)
+                sys.exit(1)
 
-                if user_choice2 == -1:
-                    print("\n\nExiting.......\n\n")
-                    break
-                elif user_choice2 == 1:
-                    jobVacancies()
-                    commute()
+            if user_choice2 == -1:
+                print("\n\nExiting.......\n\n")
+                break
+            elif user_choice2 == 1:
+                jobVacancies()
+                commute()
 
-                elif user_choice2 == 2:
-                    jobVacancies()
-                    education()
+            elif user_choice2 == 2:
+                jobVacancies()
+                education()
 
-                elif user_choice2 == 3:
-                    jobVacancies()
-                    disabilites()
+            elif user_choice2 == 3:
+                jobVacancies()
+                disabilites()
 
-                else:
-                    print("\n\n*Error* Unrecognised option, please enter one of the specified options above.\n\n")
+            else:
+                print("\n\n*Error* Unrecognised option, please enter one of the specified options above.\n\n")
 
 
         elif user_choice == 2:
@@ -91,3 +90,6 @@ def main():
             print("\n\n*Error* Unrecognised option, please enter one of the specified options above.\n\n")
 
     #   End of Function
+
+main()
+#call main
