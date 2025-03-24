@@ -106,35 +106,23 @@ def main():
                 if user_choice3 == -1:
                     break
                 elif user_choice3 == 1:
-                    while(not vacancies_location.endswith(".csv")):
-                        vacancies_location = input("Please enter the file name you would like to print in: ")
-                        if(not vacancies_location.endswith(".csv")):
-                            print("*Error* You did not enter a csv file")
-                    vacancies_location = path + "/../../data_fields_from_data_files/" + vacancies_location
+                    vacancies_location = input("Please enter the file name you would like to print in: ")
+                    vacancies_location = path + "/../../data_fields_from_data_files/" + vacancies_location + ".csv"
                     demo_Files.jobVacancies(vacancies_location)
 
                 elif user_choice3 == 2:
-                    while(not education_location.endswith(".csv")):
-                        education_location = input("Please enter the file name you would like to print in: ")
-                        if(not education_location.endswith(".csv")):
-                            print("*Error* You did not enter a csv file")
-                    education_location = path + "/../../data_fields_from_data_files/" + education_location
+                    education_location = input("Please enter the file name you would like to print in: ")
+                    education_location = path + "/../../data_fields_from_data_files/" + education_location + ".csv"
                     demo_Files.education(education_location)
 
                 elif user_choice3 == 3:
-                    while(not disabilites_location.endswith(".csv")):
-                        disabilites_location = input("Please enter the file name you would like to print in: ")
-                        if(not disabilites_location.endswith(".csv")):
-                            print("*Error* You did not enter a csv file")
-                    disabilites_location = path + "/../../data_fields_from_data_files/" + disabilites_location
+                    disabilites_location = input("Please enter the file name you would like to print in: ")
+                    disabilites_location = path + "/../../data_fields_from_data_files/" + disabilites_location + ".csv"
                     demo_Files.disabilites(disabilites_location)
                 
                 elif user_choice3 == 4:
-                    while(not commute_location.endswith(".csv")):
-                        commute_location = input("Please enter the file name you would like to print in: ")
-                        if(not commute_location.endswith(".csv")):
-                            print("*Error* You did not enter a csv file")
-                    commute_location = path + "/../../data_fields_from_data_files/" + commute_location
+                    commute_location = input("Please enter the file name you would like to print in: ")    
+                    commute_location = path + "/../../data_fields_from_data_files/" + commute_location + ".csv"
                     demo_Files.commute(commute_location)
 
                 else:
