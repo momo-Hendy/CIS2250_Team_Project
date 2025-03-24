@@ -148,7 +148,6 @@ def question2_Graph(jobVacancies, educationLevels, OutputLocation):
             
             if region == "Newfoundland and Labrador":
                 sumOfPeople[0] += numOfPeople
-                print(lineNumber)
 
             elif region == "Prince Edward Island":
                 sumOfPeople[1] += numOfPeople
@@ -179,10 +178,6 @@ def question2_Graph(jobVacancies, educationLevels, OutputLocation):
 
 
         lineNumber += 1
-    
-    print (regions)
-    print (sumOfPeople)
-    print (sumOfVacancies)
     fig, ax1 = plt.subplots()
     bar_width = 0.4
     x = np.arange(len(regions))
@@ -207,6 +202,7 @@ def question2_Graph(jobVacancies, educationLevels, OutputLocation):
     handles = [plt.Rectangle((0,0),1,1, color=colours[label]) for label in labels]
     plt.legend(handles, labels)
     ###############################################################################
+    ax1.set_title('Comparison Between Education Levels and Job Vacancies')
     while (save != "yes" and save != "no"):
         save = input("Would you like to save the graph? (Yes or No): ")
         save = save.lower()

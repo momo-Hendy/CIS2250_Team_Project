@@ -81,7 +81,7 @@ def main():
                 question1_Graph.question1_Graph(vacancies_location, comparison_location, output_location)
 
             elif user_choice2 == 2:
-                comparison_location = path + "/../../data_fields_from_data_files/education.csv" 
+                comparison_location = path + "/../../data_fields_from_data_files/Education_Level_Needed_Fields.csv" 
                 output_location = path + "/../../Output_Graphs/Question2" 
 
                 demo_Files.jobVacancies(vacancies_location)

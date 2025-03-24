@@ -59,15 +59,15 @@ def question3_Graph(jobVacancies, reasonsNotWorking, OutputLocation):
     fig, ax1 = plt.subplots()
     bar_width = 0.2
     x = np.arange(len(years))
-    bar1 = ax1.bar(x - bar_width * 1.5, notWorkingTotal['VALUE'], bar_width, color = 'red', label = "Total, not in the labour force")
+    ax1.bar(x - bar_width * 1.5, notWorkingTotal['VALUE'], bar_width, color = 'red', label = "Total, not in the labour force")
     ax1.set_ylabel('Number of people not working')
-    bar2 = ax1.bar(x - bar_width/2, notWorkingIllness['VALUE'], bar_width, color = 'green', label = "Wanted work , reason - illness")
-    bar3 = ax1.bar(x + bar_width/2, notInWorkingFource['VALUE'], bar_width, color = 'purple', label = "Job Vacancies in Not in the labour force and did not want work or not available")
+    ax1.bar(x - bar_width/2, notWorkingIllness['VALUE'], bar_width, color = 'green', label = "Wanted work , reason - illness")
+    ax1.bar(x + bar_width/2, notInWorkingFource['VALUE'], bar_width, color = 'purple', label = "Job Vacancies in Not in the labour force and did not want work or not available")
     ax1.set_xticks(x)
     ax1.set_xticklabels(years)
 
     ax4 = ax1.twinx()
-    bar4 = ax4.bar(x + bar_width * 1.5, averageVacancies, bar_width, color = 'blue', label = f"Job Vacancies in {years}")
+    ax4.bar(x + bar_width * 1.5, averageVacancies, bar_width, color = 'blue', label = f"Job Vacancies in {years}")
     ax4.set_ylabel('Number of Job Vacancies')
 
 
@@ -82,6 +82,7 @@ def question3_Graph(jobVacancies, reasonsNotWorking, OutputLocation):
     handles = [plt.Rectangle((0,0),1,1, color=colours[label]) for label in labels]
     plt.legend(handles, labels)
     ###############################################################################
+    ax1.set_title('Comparison Between Reasons why People are not Working and Job Vacancies')
     while (save != "yes" and save != "no"):
         save = input("Would you like to save the graph? (Yes or No): ")
         save = save.lower()
