@@ -36,6 +36,12 @@ from demo_Files import *
 def main():
     user_choice = 0
     path = str(Path.cwd())
+
+    vacancies_location = path + "/../../data_fields_from_data_files/education.csv" 
+    #comparison_location = path + "/../../data_fields_from_data_files/second.csv" 
+    comparison_location = ""
+    output_location = "" 
+
     print("CIS2250-W25-Project Menu")
     while user_choice != -1:
         fileOutput = ""
@@ -67,6 +73,7 @@ def main():
 
             if user_choice2 == 1:
                 comparison_location = path + "/../../data_fields_from_data_files/commute.csv" 
+                output_location = path + "/../../Output_Graphs/Question1" 
 
                 jobVacancies(vacancies_location)
                 commute(comparison_location)
@@ -75,6 +82,7 @@ def main():
 
             elif user_choice2 == 2:
                 comparison_location = path + "/../../data_fields_from_data_files/education.csv" 
+                output_location = path + "/../../Output_Graphs/Question2" 
 
                 jobVacancies(vacancies_location)
                 education(comparison_location)
@@ -83,6 +91,7 @@ def main():
 
             elif user_choice2 == 3:
                 comparison_location = path + "/../../data_fields_from_data_files/disabilites.csv" 
+                output_location = path + "/../../Output_Graphs/Question3" 
 
                 jobVacancies(vacancies_location)
                 disabilites(comparison_location)
