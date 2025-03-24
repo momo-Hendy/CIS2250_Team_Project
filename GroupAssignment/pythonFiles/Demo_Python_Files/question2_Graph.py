@@ -78,10 +78,7 @@ def question2_Graph(argv):
             elif lineNumber > 12:
                 lineNumber = 1
             if "2021" in year:
-                # if region == "Canada":
-                #     if(lineNumber != 0):
-                #         sumOfVacancies[0] += numOfVacancies
-                #     lineNumber += 1
+
                 if (rowNumber >= (educationLevel) and (educationLevel > 0)) or rowNumber <= (educationLevel) and (educationLevel < 0):
                     if region == "Newfoundland and Labrador":
                         if(lineNumber != 0):
@@ -130,74 +127,58 @@ def question2_Graph(argv):
         averageVacancies[i] = sumOfVacancies[i] / 12
     
     for rowDataFeilds in sumOfEducation_reader:
-        
-        if lineNumber > 15:
+        if rowNumber == 0:
+            rowNumber += 1
+            lineNumber = -1
+
+        elif lineNumber > 15:
             lineNumber = 0
 
-        if(lineNumber > educationLevel and whatGraph > 0):
-            lineNumber += 1
-            if lineNumber == 0:
-                lineNumber = 1
+        elif(lineNumber < educationLevel and whatGraph > 0):
+            lineNumber = lineNumber
 
-        elif(lineNumber < educationLevel and whatGraph < 0):
-            lineNumber -= 1
-            if lineNumber == 0:
-                lineNumber = -1
-        elif(lineNumber == 0):
-            lineNumber = 1
-
-        elif ((lineNumber == educationLevel or lineNumber > educationLevel) and rowNumber != 0):
+        elif(lineNumber > educationLevel and whatGraph < 0):
+            lineNumber = lineNumber
+        elif ((lineNumber == educationLevel or ((lineNumber > educationLevel) and whatGraph > 0) or ((lineNumber < educationLevel) and whatGraph < 0)) and rowNumber != 0):
             region = rowDataFeilds[0]
             try:
                 numOfPeople = int(rowDataFeilds[2])
             except ValueError:
                 print("*Error the file does not have a value in a cell in the column called VALUE", file=sys.stderr)
-            # if region == "Canada":
-            #     if(lineNumber != 0):
-            #         sumOfPeople[0] += numOfPeople
-            #     lineNumber += 1
-            if (rowNumber >= educationLevel and educationLevel > 0) or rowNumber <= educationLevel and educationLevel < 0:
-                if region == "Newfoundland and Labrador":
-                    sumOfPeople[0] += numOfPeople
-                    lineNumber += 1
-                elif region == "Prince Edward Island":
-                    sumOfPeople[1] += numOfPeople
-                    lineNumber += 1
+            
+            if region == "Newfoundland and Labrador":
+                sumOfPeople[0] += numOfPeople
+                print(lineNumber)
 
-                elif region == "Nova Scotia":
-                    sumOfPeople[2] += numOfPeople
-                    lineNumber += 1
+            elif region == "Prince Edward Island":
+                sumOfPeople[1] += numOfPeople
 
-                elif region == "New Brunswick":
-                    sumOfPeople[3] += numOfPeople
-                    lineNumber += 1
+            elif region == "Nova Scotia":
+                sumOfPeople[2] += numOfPeople
 
-                elif region == "Quebec":
-                    sumOfPeople[4] += numOfPeople
-                    lineNumber += 1
+            elif region == "New Brunswick":
+                sumOfPeople[3] += numOfPeople
 
-                elif region == "Ontario":
-                    sumOfPeople[5] += numOfPeople
-                    lineNumber += 1
+            elif region == "Quebec":
+                sumOfPeople[4] += numOfPeople
 
-                elif region == "Manitoba":
-                    sumOfPeople[6] += numOfPeople
-                    lineNumber += 1
+            elif region == "Ontario":
+                sumOfPeople[5] += numOfPeople
 
-                elif region == "Saskatchewan":
-                    sumOfPeople[7] += numOfPeople
-                    lineNumber += 1
+            elif region == "Manitoba":
+                sumOfPeople[6] += numOfPeople
 
-                elif region == "Alberta":
-                    sumOfPeople[8] += numOfPeople
-                    lineNumber += 1
+            elif region == "Saskatchewan":
+                sumOfPeople[7] += numOfPeople
 
-                elif region == "British Columbia":
-                    sumOfPeople[9] += numOfPeople
-                    lineNumber += 1
+            elif region == "Alberta":
+                sumOfPeople[8] += numOfPeople
 
-        if rowNumber == 0:
-            rowNumber += 1
+            elif region == "British Columbia":
+                sumOfPeople[9] += numOfPeople
+
+
+        lineNumber += 1
     
     print (regions)
     print (sumOfPeople)
