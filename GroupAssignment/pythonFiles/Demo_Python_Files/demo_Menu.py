@@ -21,6 +21,8 @@ import demo_Files
 
 def main():
     user_choice = 0
+    user_choice2 = 0
+    user_choice3 = 0
     path = str(Path.cwd())
 
     #if varibales are empty, then preprocessing has not been done
