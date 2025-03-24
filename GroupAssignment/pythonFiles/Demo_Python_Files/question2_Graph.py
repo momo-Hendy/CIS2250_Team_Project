@@ -43,7 +43,7 @@ def question2_Graph(jobVacancies, educationLevels, outputLocation):
         try:
             whatGraph = int(input("up to and includeing: Enter a negitive number:\n"))
         except ValueError:
-            print("\n\n*Error* Please enter only the integer (Whole Number) for each option i.e. either 1, 2, 3, or -1 to exit\n\n", file = sys.stderr)
+            print("\n\n*Error* Please enter only the integer (Whole Number) for each option i.e. either 1, 2, 3, ect. or -1, -2, -3, ect.\n\n", file = sys.stderr)
             sys.exit(1)
         if whatGraph == 0:
             print ("*Error* please input a positive or nagitive number", file = sys.stderr)
@@ -73,7 +73,7 @@ def question2_Graph(jobVacancies, educationLevels, outputLocation):
             print ("*Error please enter one of the values stated above")
     
     if(educationLevel < 0):
-        print("\n\nGoodbye......\n\n")
+        print("\n\n")
         sys.exit(0)
     sumOfEducation_reader = csv.reader(sumOfEducation)
     jobVacancies_reader = csv.reader(jobVacanciesAverage)

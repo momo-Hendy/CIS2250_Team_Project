@@ -52,7 +52,7 @@ def question1_Graph(jobVacancies, AverageCommuteTime, OutputLocation):
         if(geo > 14 or geo == 0):
             print("*Error* this is an unknown value please enter one of the values specified above\n", file = sys.stderr)
         if geo < 0:
-            print("\n\nGoodBye.......\n\n")
+            print("")
             sys.exit(0)
     #This section just switches the number the user inputs to the region they would like to compare
     if (geo == 1):

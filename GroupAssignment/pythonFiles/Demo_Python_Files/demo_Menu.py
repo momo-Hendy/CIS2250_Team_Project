@@ -21,8 +21,6 @@ import demo_Files
 
 def main():
     user_choice = 0
-    user_choice2 = 0
-    user_choice3 = 0
     path = str(Path.cwd())
 
     #if varibales are empty, then preprocessing has not been done
@@ -31,13 +29,21 @@ def main():
     commute_location = ""
     disabilites_location = ""
     output_location = "" 
+    user_choice = 0
 
     print("\nCIS2250-W25-Project Menu\n")
     while user_choice != -1:
+        user_choice = 0
+        user_choice2 = 0
+        user_choice3 = 0
+
         fileOutput = ""
-        print("Option 1: Print Graph From Job Vaccancy Questions")
+        print("\nOption 1: Print Graph From Job Vaccancy Questions")
         print("Option 2: Get Data From Files")
-        temp_user_choice = input("Enter 1, 2, or -1 to exit: ")
+        try:
+            temp_user_choice = input("Enter 1, 2, or -1 to exit: ")
+        except ValueError:
+            print("*Error* ")
         try:
             user_choice = int(temp_user_choice)
         except ValueError:
@@ -55,15 +61,18 @@ def main():
             print("Option 1: Do job vacancies affect the average commute time across the provinces?")
             print("Option 2: Do regions with lower education levels have differing job vacancy rates compared to regions with higher education rates?")
             print("Option 3: What is the correlation between people with disabilities who are unable to find work and the amount of job vacancies?")
-                
-            temp_user_choice2 = input("Enter 1, 2, or 3: ")
+            print("Option -1: Return to main menu")
+            temp_user_choice2 = input("Enter 1, 2, 3, or -1: ")
             try:
                 user_choice2 = int(temp_user_choice2)
             except ValueError:
                 print("\n\n*Error* Please enter only the integer (Whole Number) for each option i.e. either 1, 2, 3, or -1 to exit\n\n", file = sys.stderr)
                 sys.exit(1)
 
-            if user_choice2 == 1:
+            if user_choice2 == -1:
+                print("")
+
+            elif user_choice2 == 1:
                 if vacancies_location == "" and commute_location == "":
                     print("\n*Error* Pre-processing for csv files has not been completed. \nplease complete Option 2: Get Data From Files first\n")
                 else:
@@ -123,7 +132,7 @@ def main():
                     demo_Files.disabilites(disabilites_location)
                 
                 elif user_choice3 == 4:
-                    commute_location = input("Please enter the file name you would like to print in: ")    
+                    commute_location = input("Please enter the file name you would like to print in: ")
                     commute_location = path + "/../../data_fields_from_data_files/" + commute_location + ".csv"
                     demo_Files.commute(commute_location)
 
