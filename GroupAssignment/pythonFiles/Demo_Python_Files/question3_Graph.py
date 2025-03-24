@@ -5,14 +5,14 @@ from matplotlib import pyplot as plt
 import csv
 import numpy as np
 
-def question3_Graph(jobVacanciesCSV, notWorkingCSV, outputGraph):
+def question3_Graph(jobVacancies, reasonsNotWorking, OutputLocation):
     rowNumber = 0
     numOfVacancies = 0
     sumOfVacancies = [0,0]
     averageVacancies = [0, 0]
-    # jobVacanciesCSV = argv[1]
-    # notWorkingCSV = argv[2]
-    # outputGraph = argv[3]
+    jobVacanciesCSV = jobVacancies
+    notWorkingCSV = reasonsNotWorking
+    outputGraph = OutputLocation
     year = ""
     save = ""
     years = ["2017", "2022"]
@@ -98,4 +98,4 @@ def question3_Graph(jobVacanciesCSV, notWorkingCSV, outputGraph):
 
 
 
-question3_Graph(sys.argv)
+# question3_Graph(str, str, str)

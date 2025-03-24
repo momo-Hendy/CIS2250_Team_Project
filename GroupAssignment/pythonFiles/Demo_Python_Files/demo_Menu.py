@@ -18,10 +18,10 @@ from tkinter import *
 import sys
 from pathlib import Path
 
-from question1_Graph import *
-#from question2_Graph import *
-#from question3_Graph import *
-from demo_Files import *
+import question1_Graph
+import question2_Graph
+import question3_Graph
+import demo_Files
 
 #will add proper gui once have basic functionality
 # win = Tk()
@@ -75,28 +75,28 @@ def main():
                 comparison_location = path + "/../../data_fields_from_data_files/commute.csv" 
                 output_location = path + "/../../Output_Graphs/Question1" 
 
-                jobVacancies(vacancies_location)
-                commute(comparison_location)
+                demo_Files.jobVacancies(vacancies_location)
+                demo_Files.commute(comparison_location)
                 
-                question1_Graph(vacancies_location, comparison_location, output_location)
+                question1_Graph.question1_Graph(vacancies_location, comparison_location, output_location)
 
             elif user_choice2 == 2:
                 comparison_location = path + "/../../data_fields_from_data_files/education.csv" 
                 output_location = path + "/../../Output_Graphs/Question2" 
 
-                jobVacancies(vacancies_location)
-                education(comparison_location)
-
+                demo_Files.jobVacancies(vacancies_location)
+                demo_Files.education(comparison_location)
+                question2_Graph.question2_Graph(vacancies_location, comparison_location, output_location)
 
 
             elif user_choice2 == 3:
                 comparison_location = path + "/../../data_fields_from_data_files/disabilites.csv" 
                 output_location = path + "/../../Output_Graphs/Question3" 
 
-                jobVacancies(vacancies_location)
-                disabilites(comparison_location)
+                demo_Files.jobVacancies(vacancies_location)
+                demo_Files.disabilites(comparison_location)
 
-                question3_Graph(vacancies_location, comparison_location, output_location)
+                question3_Graph.question3_Graph(vacancies_location, comparison_location, output_location)
 
             else:
                 print("\n\n*Error* Unrecognised option, please enter one of the specified options above.\n\n")

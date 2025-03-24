@@ -5,21 +5,20 @@ from matplotlib import pyplot as plt
 import csv
 import numpy as np
 
-def question2_Graph(jobVacanciesCSV, educationLevelCSV, outputGraph
-):
+def question2_Graph(jobVacancies, educationLevels, OutputLocation):
     lineNumber = 0
     rowNumber = 0
-    # jobVacanciesCSV = argv[1]
-    # educationLevelCSV = argv[2]
-    # outputGraph = argv[3]
+    jobVacanciesCSV = jobVacancies
+    educationLevelCSV = educationLevels
+    outputGraph = educationLevels
     sumOfPeople = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     sumOfVacancies = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     averageVacancies = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     save = ""
     regions = ["Newfoundland and Labrador","Prince Edward Island","Nova Scotia","New Brunswick","Quebec","Ontario","Manitoba","Saskatchewan","Alberta","British Columbia"]
-    if len(argv) != 4:
-        print("*Error* You need this file format create_name_category_plot.py <data file> <data file> <output graph location>")
-        sys.exit(-1)
+    # if len(argv) != 4:
+    #     print("*Error* You need this file format create_name_category_plot.py <data file> <data file> <output graph location>")
+    #     sys.exit(-1)
 
     try:
         jobVacanciesCSV_df = pd.read_csv(jobVacanciesCSV)
@@ -203,10 +202,10 @@ def question2_Graph(jobVacanciesCSV, educationLevelCSV, outputGraph
     ax2.ticklabel_format(style='plain', axis='y')
     ax1.ticklabel_format(style='plain', axis='y')
     ####### This was coppied from a video and edited to fit this program ##########
-    # lines = bar1 + bar2
-    # labels = [l.get_label() for l in lines]
-    # ax1.legend(lines, labels)
-    # ax1.set_title('Comparison Between Commute times and Job Vacancies')
+    colours = {'Education Level':'red','Number of Job Vacancies': 'blue'}         
+    labels = list(colours.keys())
+    handles = [plt.Rectangle((0,0),1,1, color=colours[label]) for label in labels]
+    plt.legend(handles, labels)
     ###############################################################################
     while (save != "yes" and save != "no"):
         save = input("Would you like to save the graph? (Yes or No): ")
@@ -222,4 +221,4 @@ def question2_Graph(jobVacanciesCSV, educationLevelCSV, outputGraph
         else:
             print("*Error* you did not enter Yes, or No. Please enter one or the other.")
 
-question2_Graph(sys.argv)
+# question2_Graph(str, str, str)

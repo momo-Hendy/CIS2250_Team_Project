@@ -24,14 +24,14 @@ In order to get a legend the right way using two different data files.
 
 '''
 
-def question1_Graph(jobVacanciesCSV, commuteTimeCSV, outputGraph):
+def question1_Graph(jobVacancies, AverageCommuteTime, OutputLocation):
     geo = 15
     labels = []
     save = ""
-    if len(argv) != 4:
-        print("*Error* You need this file format create_name_category_plot.py <data file> <pdf file>")
-        sys.exit(-1)
-    while(geo < 0 or geo > 11):
+    # if len(argv) != 4:
+    #     print("*Error* You need this file format create_name_category_plot.py <data file> <data file> <output graph location>")
+    #     sys.exit(-1)
+    while(geo > 11):
         try:
             geo = int(input("Please select which area you would like to compare:\n\n"
                         "Canada: 1\n"
@@ -67,7 +67,7 @@ def question1_Graph(jobVacanciesCSV, commuteTimeCSV, outputGraph):
         jobVacancyRegion = "Nova Scotia"
     elif (geo == 5):
         commuteRegion = "New  Brunswick"
-        jobVacancyRegion = "New Bruswick"
+        jobVacancyRegion = "New Brunswick"
     elif (geo == 6):
         commuteRegion = "Quebec"
         jobVacancyRegion = "Quebec"
@@ -88,10 +88,11 @@ def question1_Graph(jobVacanciesCSV, commuteTimeCSV, outputGraph):
         jobVacancyRegion = "British Columbia"
 
     #End of converting regions
+
     
-    # jobVacanciesCSV = argv[1]
-    # commuteTimeCSV = argv[2]
-    # outputGraph = argv[3]
+    jobVacanciesCSV = jobVacancies
+    commuteTimeCSV = AverageCommuteTime
+    outputGraph = OutputLocation
 
     try:
         jobVacanciesCSV_df = pd.read_csv(jobVacanciesCSV)
@@ -99,7 +100,7 @@ def question1_Graph(jobVacanciesCSV, commuteTimeCSV, outputGraph):
     except IOError as err:
         print("Unable to open source file", jobVacanciesCSV,
                 ": {}".format(err), file=sys.stderr)
-        sys.exit(-1)
+        sys.exit(1)
 
     try:
         commuteTimeCSV_df = pd.read_csv(commuteTimeCSV)
@@ -107,110 +108,45 @@ def question1_Graph(jobVacanciesCSV, commuteTimeCSV, outputGraph):
     except IOError as err:
         print("Unable to open source file", commuteTimeCSV,
                 ": {}".format(err), file=sys.stderr)
-        sys.exit(-1)
+        sys.exit(1)
 
 
     fig, ax1 = plt.subplots()
     commuteTimeByRegion = commuteTimeCSV_df.loc[(commuteTimeCSV_df['GEO'] == commuteRegion)]
+
     line1 = ax1.plot(commuteTimeByRegion['Year'], commuteTimeByRegion['VALUE'], color = 'red', label = f"Commute Time in {jobVacancyRegion}")
     ax1.set_ylabel('Average Commute Time in Minutes')
-    ax1.tick_params(axis = 'y')
+    
 
     jobVacanciesByRegion = jobVacanciesCSV_df.loc[(jobVacanciesCSV_df['GEO'] == jobVacancyRegion) &
         (jobVacanciesCSV_df['REF_DATE'].astype(str).isin(["2021-05", "2022-05", "2023-05", "2024-05"]))]
 
-
-    # jobVacanciesByRegion = jobVacanciesByRegion.loc['-05' in jobVacanciesByRegion['REF_DATE'] ]
     ax2 = ax1.twinx()
     line2 = ax2.plot(commuteTimeByRegion['Year'], jobVacanciesByRegion['VALUE'], color = 'blue', label = f"Job Vacancies in {jobVacancyRegion}")
     ax2.set_ylabel('Number of Job Vacancies')
-    ax2.tick_params(axis = 'y')
-    ax2.ticklabel_format(style='plain', axis='y')
-    # ax1.xticks(rotation=45)
     
-    # This was coppied from a video ##########
+
+    #This was taken so the style stays as is and does not become scientific notation
+    ax2.ticklabel_format(style='plain', axis='y')
+
+    ####### This was coppied from a video and edited to fit this program ##########
     lines = line1 + line2
     labels = [l.get_label() for l in lines]
     ax1.legend(lines, labels)
     ax1.set_title('Comparison Between Commute times and Job Vacancies')
-    ###########################################
+    ###############################################################################
     while (save != "yes" and save != "no"):
         save = input("Would you like to save the graph? (Yes or No): ")
         save = save.lower()
         if (save == "yes"):
             outputName = input("What would you like the file to be called?")
+            # if(outputName.endswith()):
+            #     print("*Error* please do not input a ( . ) in the name you just need to specify the name")
+            outputName = outputGraph + outputName + ".png"
             fig.savefig(outputName)
         elif save == "no":
             plt.show()
         else:
             print("*Error* you did not enter Yes, or No. Please enter one or the other.")
-    # concatenated = pd.concat([ax1, ax2])
-    # sns.lineplot(x = "Year", y = "VALUE", hue="GEO", data=concatenated)
 
-
-
-    # p1, = ax1.plot(x_axis, "Year") 
-    # ax1.legend(['Average Commute Time in Minutes'], loc="upper left")
-    
-    
-    # ax2 = ax1.twinx()
-    # ax2.legend(['Number of Job Vacancies'], loc="upper right")
-    # ax = jobVacanciesCSV_df.plot(figsize=(20,10))
-
-    # commuteTimeCSV_df.plot(ax=ax)
-
-
-
-
-
-
-    # commuteTimeCSV_df.close()
-    # commuteTimeCSV_df = pd.read_csv(commuteTimeCSV)
-    # fig = plt.figure()
-
-    # Canada = commuteTimeCSV_df[commuteTimeCSV_df['GEO'] == 'Canada'].reset_index(drop=False)
-
-    # This creates a lineplot using seaborn.  We simply refer to
-    # the various columns of data we want in our pandas data structure.
-    # may = jobVacanciesCSV_df['-05' in jobVacanciesCSV_df['REF_DATE'].reset_index(drop=False)]
-    # commuteDate = commuteTimeCSV_df[commuteTimeCSV_df['Year'].reset_index(drop=True)]
-    # commuteLocation = commuteTimeCSV_df[commuteTimeCSV_df['GEO'] .reset_index(drop=True)]
-
-    # output = sns.barplot(x = "Year", y = "Value", hue="GEO", data=commuteTimeCSV_df)
-    # jobVacanciesOutput = sns.barplot(x = "REF_DATE", y = "VALUE", hue="GEO", data=jobVacanciesCSV_df)
-    
-    # fig, ax1 = plt.subplots()
-    # color = 'tab:red'
-    # ax1.set_xlabel('Date')
-
-    # plt.plot(output, color=color)
-    # plt.gcf().autofmt_xdate()
-    # ax1.tick_params(axis='y', labelcolor=color)
-    # ax1.set_ylabel('Average Commute Time in Minutes', color=color)
-
-    # ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
-
-    # color = 'tab:blue'
-    # ax2.set_ylabel('Number of Job Vacancies', color=color)  # we already handled the x-label with ax1
-    # ax2.plot(jobVacanciesOutput, color=color)
-    # ax2.tick_params(axis='y', labelcolor=color)
-    # plt.xticks(rotation=45)
-
-    # plt.title('Bitcoin price vs Bitcoin Tweet Sentiment')
-    # fig.tight_layout()  # otherwise the right y-label is slightly clipped
-    # plt.show()
-    
-    
-    
-    # plt.setp(output.get_legend().get_texts(), fontsize='10')
-
-    # Now we can save the matplotlib figure that seaborn has drawn
-    # for us to a file
-    # fig.savefig(outputGraph, bbox_inches="tight")
-    # for rowDataFeilds in commuteTimeCSV:
-    #     if lineNumber > 0:
-    #         for i in range (1, 5):
-    
-
-        # lineNumber += 1
-question1_Graph(sys.argv)
+# question1_Graph(str, str, str)
