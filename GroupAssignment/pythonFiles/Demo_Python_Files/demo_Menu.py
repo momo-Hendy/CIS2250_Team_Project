@@ -111,7 +111,7 @@ def main():
                         if(not vacancies_location.endswith(".csv")):
                             print("*Error* You did not enter a csv file")
                     vacancies_location = path + "/../../data_fields_from_data_files/" + vacancies_location
-                    jobVacancies(vacancies_location)
+                    demo_Files.jobVacancies(vacancies_location)
 
                 elif user_choice3 == 2:
                     while(not education_location.endswith(".csv")):
@@ -119,7 +119,7 @@ def main():
                         if(not education_location.endswith(".csv")):
                             print("*Error* You did not enter a csv file")
                     education_location = path + "/../../data_fields_from_data_files/" + education_location
-                    education(education_location)
+                    demo_Files.education(education_location)
 
                 elif user_choice3 == 3:
                     while(not disabilites_location.endswith(".csv")):
@@ -127,7 +127,7 @@ def main():
                         if(not disabilites_location.endswith(".csv")):
                             print("*Error* You did not enter a csv file")
                     disabilites_location = path + "/../../data_fields_from_data_files/" + disabilites_location
-                    disabilites(disabilites_location)
+                    demo_Files.disabilites(disabilites_location)
                 
                 elif user_choice3 == 4:
                     while(not commute_location.endswith(".csv")):
@@ -135,7 +135,7 @@ def main():
                         if(not commute_location.endswith(".csv")):
                             print("*Error* You did not enter a csv file")
                     commute_location = path + "/../../data_fields_from_data_files/" + commute_location
-                    commute(commute_location)
+                    demo_Files.commute(commute_location)
 
                 else:
                     print("\n*Error* Unrecognised option, please enter one of the specified options above.\n")
