@@ -5,12 +5,14 @@ from matplotlib import pyplot as plt
 import csv
 import numpy as np
 
-def question2_Graph(jobVacancies, educationLevels, OutputLocation):
+def question2_Graph(jobVacancies, educationLevels, outputLocation):
     lineNumber = 0
     rowNumber = 0
+    whatGraph = 0
+    educationLevel = 0
     jobVacanciesCSV = jobVacancies
     educationLevelCSV = educationLevels
-    outputGraph = educationLevels
+    outputGraph = outputLocation
     sumOfPeople = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     sumOfVacancies = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     averageVacancies = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -36,29 +38,41 @@ def question2_Graph(jobVacancies, educationLevels, OutputLocation):
         print("Unable to open source file", educationLevelCSV,
                 ": {}".format(err), file=sys.stderr)
         sys.exit(1)
-
-    print("Including and onward: Enter 1")
-    whatGraph = int(input("up to and includeing: Enter -1"))
-
-    educationLevel = int(input("which education Level you would like to see:\n"
-                            "No certificate, diploma or degree: 1\n"
-                            "High (secondary) school diploma or equivalency certificate: 2\n"
-                            "Postsecondary certificate, diploma or degree: 3\n"
-                            "Postsecondary certificate or diploma below bachelor level: 4\n"
-                            "Apprenticeship or trades certificate or diploma: 5\n"
-                            "Non-apprenticeship trades certificate or diploma: 6\n"
-                            "Apprenticeship certificate: 7\n"
-                            "College, CEGEP or other non-university certificate or diploma: 8\n"
-                            "University certificate or diploma below bachelor level: 9\n"
-                            "Bachelor’s degree or higher: 10\n"
-                            "Bachelor's degree: 11\n"
-                            "University certificate or diploma above bachelor level: 12\n"
-                            "Degree in medicine, dentistry, veterinary medicine or optometry: 13\n"
-                            "Master's degree: 14\n"
-                            "Earned doctorate: 15\n"
-                            "To Exit Enter: 0 or a negitive number\n\n"))
+    while(whatGraph == 0):
+        print("Including and onward: Enter a positive number")
+        try:
+            whatGraph = int(input("up to and includeing: Enter a negitive number:\n"))
+        except ValueError:
+            print("\n\n*Error* Please enter only the integer (Whole Number) for each option i.e. either 1, 2, 3, or -1 to exit\n\n", file = sys.stderr)
+            sys.exit(1)
+        if whatGraph == 0:
+            print ("*Error* please input a positive or nagitive number", file = sys.stderr)
+    while educationLevel > 15 or educationLevel == 0:
+        try:   
+            educationLevel = int(input("which education Level you would like to see:\n"
+                                "No certificate, diploma or degree: 1\n"
+                                "High (secondary) school diploma or equivalency certificate: 2\n"
+                                "Postsecondary certificate, diploma or degree: 3\n"
+                                "Postsecondary certificate or diploma below bachelor level: 4\n"
+                                "Apprenticeship or trades certificate or diploma: 5\n"
+                                "Non-apprenticeship trades certificate or diploma: 6\n"
+                                "Apprenticeship certificate: 7\n"
+                                "College, CEGEP or other non-university certificate or diploma: 8\n"
+                                "University certificate or diploma below bachelor level: 9\n"
+                                "Bachelor’s degree or higher: 10\n"
+                                "Bachelor's degree: 11\n"
+                                "University certificate or diploma above bachelor level: 12\n"
+                                "Degree in medicine, dentistry, veterinary medicine or optometry: 13\n"
+                                "Master's degree: 14\n"
+                                "Earned doctorate: 15\n"
+                                "To Exit Enter a Negitive number\n\n"))
+        except ValueError:
+            print("\n\n*Error* Please enter only the integer (Whole Number) for each option i.e. 1, 2, 3, ..., 15.\n\n", file = sys.stderr)
+            sys.exit(1)
+        if(educationLevel > 15 or educationLevel == 0):
+            print ("*Error please enter one of the values stated above")
     
-    if(educationLevel < 1):
+    if(educationLevel < 0):
         print("\n\nGoodbye......\n\n")
         sys.exit(0)
     sumOfEducation_reader = csv.reader(sumOfEducation)
@@ -213,7 +227,16 @@ def question2_Graph(jobVacancies, educationLevels, OutputLocation):
             outputName = outputGraph + outputName + ".png"
             fig.savefig(outputName)
         elif save == "no":
-            plt.show()
+            save = input("would you like to view the graph? (Yes or No): ")
+            save = save.lower()
+            if save == "yes":
+                print ("Please Close the graph before continuing")
+
+                plt.show()
+            else:
+                print("Have a Nice Day!")
+                sys.exit(0)
+            
         else:
             print("*Error* you did not enter Yes, or No. Please enter one or the other.")
 

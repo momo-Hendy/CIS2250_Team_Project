@@ -31,7 +31,7 @@ def question1_Graph(jobVacancies, AverageCommuteTime, OutputLocation):
     # if len(argv) != 4:
     #     print("*Error* You need this file format create_name_category_plot.py <data file> <data file> <output graph location>")
     #     sys.exit(-1)
-    while(geo > 11):
+    while(geo > 11 or geo == 0):
         try:
             geo = int(input("Please select which area you would like to compare:\n\n"
                         "Canada: 1\n"
@@ -49,9 +49,11 @@ def question1_Graph(jobVacancies, AverageCommuteTime, OutputLocation):
         except ValueError:
             print("\n\n*Error* Please enter only the integer (Whole Number) for each option\n\n", file = sys.stderr)
             sys.exit(1)
-        if(geo > 14):
+        if(geo > 14 or geo == 0):
             print("*Error* this is an unknown value please enter one of the values specified above\n", file = sys.stderr)
-    
+        if geo < 0:
+            print("\n\nGoodBye.......\n\n")
+            sys.exit(0)
     #This section just switches the number the user inputs to the region they would like to compare
     if (geo == 1):
         commuteRegion = "Canada"
@@ -145,7 +147,16 @@ def question1_Graph(jobVacancies, AverageCommuteTime, OutputLocation):
             outputName = outputGraph + outputName + ".png"
             fig.savefig(outputName)
         elif save == "no":
-            plt.show()
+            save = input("would you like to view the graph? (Yes or No): ")
+            save = save.lower()
+            if save == "yes":
+                print ("Please Close the graph before continuing")
+
+                plt.show()
+            else:
+                print("Have a Nice Day!")
+                sys.exit(0)
+            
         else:
             print("*Error* you did not enter Yes, or No. Please enter one or the other.")
 

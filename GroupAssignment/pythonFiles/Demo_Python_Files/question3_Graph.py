@@ -93,7 +93,16 @@ def question3_Graph(jobVacancies, reasonsNotWorking, OutputLocation):
             outputName = outputGraph + outputName + ".png"
             fig.savefig(outputName)
         elif save == "no":
-            plt.show()
+            save = input("would you like to view the graph? (Yes or No): ")
+            save = save.lower()
+            if save == "yes":
+                print ("Please Close the graph before continuing")
+
+                plt.show()
+            else:
+                print("Have a Nice Day!")
+                sys.exit(0)
+            
         else:
             print("*Error* you did not enter Yes, or No. Please enter one or the other.")
 
