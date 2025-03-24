@@ -11,10 +11,6 @@ Functional Summary
     Based on user decisions in the menu, call on 1 of 3 graph files and send which datafields they require.
 '''
 
-# import tkinter as tk
-# from tkinter import messagebox
-
-from tkinter import *
 import sys
 from pathlib import Path
 
@@ -23,19 +19,15 @@ import question2_Graph
 import question3_Graph
 import demo_Files
 
-#will add proper gui once have basic functionality
-# win = Tk()
-# win.title("CIS2250-W25-Project Menu")
-
-# menu = Menu(win)
-# win.config(menu=menu)
-
-# data = Menu(menu)
-# menu.add_cascade(label="Data", menu=data)
-
 def main():
     user_choice = 0
     path = str(Path.cwd())
+
+    vacancies_location = "" 
+    education_location = ""
+    commute_location = ""
+    disabilites_location = ""
+    output_location = "" 
 
     vacancies_location = path + "/../../data_fields_from_data_files/education.csv" 
     #comparison_location = path + "/../../data_fields_from_data_files/second.csv" 
@@ -58,7 +50,7 @@ def main():
             print("\n\nExiting.......\n\n")
             break
         elif user_choice == 1:
-            print("\nChoose Question:\n")
+            print("\nChoose Question:")
            
             print("Option 1: Do job vacancies affect the average commute time across the provinces?")
             print("Option 2: Do regions with lower education levels have differing job vacancy rates compared to regions with higher education rates?")
@@ -72,38 +64,79 @@ def main():
                 sys.exit(1)
 
             if user_choice2 == 1:
-                comparison_location = path + "/../../data_fields_from_data_files/commute.csv" 
-                output_location = path + "/../../Output_Graphs/Question1" 
-
-                demo_Files.jobVacancies(vacancies_location)
-                demo_Files.commute(comparison_location)
-                
-                question1_Graph.question1_Graph(vacancies_location, comparison_location, output_location)
+                if vacancies_location == "" and commute_location == "":
+                    print("\n*Error* Pre-processing for csv files has not been completed. \nplease complete Option 2: Get Data From Files first\n")
+                else:
+                    question1_Graph.question1_Graph(vacancies_location, commute_location, output_location)
 
             elif user_choice2 == 2:
-                comparison_location = path + "/../../data_fields_from_data_files/Education_Level_Needed_Fields.csv" 
-                output_location = path + "/../../Output_Graphs/Question2" 
-
-                demo_Files.jobVacancies(vacancies_location)
-                demo_Files.education(comparison_location)
-                question2_Graph.question2_Graph(vacancies_location, comparison_location, output_location)
-
+                if vacancies_location == "" and education_location == "":
+                    print("\n*Error* Pre-processing for csv files has not been completed. \nplease complete Option 2: Get Data From Files first\n")
+                else:
+                    question2_Graph.question2_Graph(vacancies_location, education_location, output_location)
 
             elif user_choice2 == 3:
-                comparison_location = path + "/../../data_fields_from_data_files/disabilites.csv" 
-                output_location = path + "/../../Output_Graphs/Question3" 
-
-                demo_Files.jobVacancies(vacancies_location)
-                demo_Files.disabilites(comparison_location)
-
-                question3_Graph.question3_Graph(vacancies_location, comparison_location, output_location)
+                if vacancies_location == "" and disabilites_location == "":
+                    print("\n*Error* Pre-processing for csv files has not been completed. \nplease complete Option 2: Get Data From Files first\n")
+                else:
+                    question3_Graph.question3_Graph(vacancies_location, disabilites_location, output_location)
 
             else:
                 print("\n\n*Error* Unrecognised option, please enter one of the specified options above.\n\n")
 
-
+        #get preprocessing from milestone II code
         elif user_choice == 2:
-            print()
+                    
+            while user_choice3 != -1:
+                fileOutput = ""
+                print("Option 1: Collect the nessisary datafiles from Job Vacancies file")
+                print("Option 2: Collect the nessisary datafiles from Highest Education Level file")
+                print("Option 3: Collect the nessisary datafiles from the file for the comparison between not working due to an illness to Job Vacancies question")
+                print("Option 4: Take out all of the unnessasary data in the average commute time file")
+                temp_user_choice = input("Enter 1, 2, 3, 4, or -1 to return to main menu: ")
+                try:
+                    user_choice3 = int(temp_user_choice)
+                except ValueError:
+                    print("\n\n*Error* Please enter only the integer (Whole Number) for each option i.e. either 1, 2, 3, or -1 to exit\n\n", file = sys.stderr)
+                    sys.exit(1)
+
+                
+                if user_choice3 == -1:
+                    break
+                elif user_choice3 == 1:
+                    while(not vacancies_location.endswith(".csv")):
+                        vacancies_location = input("Please enter the file name you would like to print in: ")
+                        if(not vacancies_location.endswith(".csv")):
+                            print("*Error* You did not enter a csv file")
+                    vacancies_location = path + "/../../data_fields_from_data_files/" + vacancies_location
+                    jobVacancies(vacancies_location)
+
+                elif user_choice3 == 2:
+                    while(not education_location.endswith(".csv")):
+                        education_location = input("Please enter the file name you would like to print in: ")
+                        if(not education_location.endswith(".csv")):
+                            print("*Error* You did not enter a csv file")
+                    education_location = path + "/../../data_fields_from_data_files/" + education_location
+                    education(education_location)
+
+                elif user_choice3 == 3:
+                    while(not disabilites_location.endswith(".csv")):
+                        disabilites_location = input("Please enter the file name you would like to print in: ")
+                        if(not disabilites_location.endswith(".csv")):
+                            print("*Error* You did not enter a csv file")
+                    disabilites_location = path + "/../../data_fields_from_data_files/" + disabilites_location
+                    disabilites(disabilites_location)
+                
+                elif user_choice3 == 4:
+                    while(not commute_location.endswith(".csv")):
+                        commute_location = input("Please enter the file name you would like to print in: ")
+                        if(not commute_location.endswith(".csv")):
+                            print("*Error* You did not enter a csv file")
+                    commute_location = path + "/../../data_fields_from_data_files/" + commute_location
+                    commute(commute_location)
+
+                else:
+                    print("\n*Error* Unrecognised option, please enter one of the specified options above.\n")
         else:
             print("\n\n*Error* Unrecognised option, please enter one of the specified options above.\n\n")
 
