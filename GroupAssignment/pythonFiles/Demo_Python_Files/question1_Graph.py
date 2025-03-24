@@ -24,7 +24,7 @@ In order to get a legend the right way using two different data files.
 
 '''
 
-def question1_Graph(argv):
+def question1_Graph(jobVacanciesCSV, commuteTimeCSV, outputGraph):
     geo = 15
     labels = []
     save = ""
@@ -88,11 +88,10 @@ def question1_Graph(argv):
         jobVacancyRegion = "British Columbia"
 
     #End of converting regions
-
     
-    jobVacanciesCSV = argv[1]
-    commuteTimeCSV = argv[2]
-    outputGraph = argv[3]
+    # jobVacanciesCSV = argv[1]
+    # commuteTimeCSV = argv[2]
+    # outputGraph = argv[3]
 
     try:
         jobVacanciesCSV_df = pd.read_csv(jobVacanciesCSV)

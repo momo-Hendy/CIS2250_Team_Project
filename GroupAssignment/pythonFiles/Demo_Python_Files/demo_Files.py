@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 
-def education():
+def education(fileOutput):
     rowNumber = 0
     educationLevel = []
     #Collecting the data file
@@ -13,7 +13,7 @@ def education():
     dataFile = path + "/../../original_data_files/Highest_Level_Of_Education.csv"
     try:
         dataFile_fh = open(dataFile, encoding = "utf-8-sig")
-        fileOutput = open("Education_Level", "w", encoding= "utf-8-sig")
+        fileOutput = open(fileOutput, "w", encoding= "utf-8-sig")
 
 
     except TypeError:
@@ -83,14 +83,14 @@ def education():
         educationLevel.clear()
         rowNumber += 1
 
-def disabilites():
+def disabilites(fileOutput):
     path = str(Path.cwd())
     lineNumber = 0
     #Collecting the data file
     dataFile = path +  "/../../original_data_files/Reasons_Not_Looking_For_Work.csv"
     try:
         dataFile_fh = open(dataFile, encoding = "utf-8-sig")
-        fileOutput = open("Not_Working", "w", encoding= "utf-8-sig")
+        fileOutput = open(fileOutput, "w", encoding= "utf-8-sig")
     except TypeError:
         print("*Error* could not open file\n %s\n please enter a different file" % (dataFile), file = sys.stderr)
         sys.exit(1)
@@ -125,14 +125,14 @@ def disabilites():
                         print("%s,%s,%s,%s,%s,%s" % (ref_Date, geo, reason, estimates, UOM, value), file = fileOutput)
         lineNumber += 1
 
-def jobVacancies():
+def jobVacancies(fileOutput):
     lineNumber = 0
     path = str(Path.cwd())
     #Collecting the data file
     dataFile = path + "/../../original_data_files/Job_Vacancies.csv"
     try:
         dataFile_fh = open(dataFile, encoding = "utf-8-sig")
-        fileOutput = open("Vacancies", "w", encoding = "utf-8-sig")
+        fileOutput = open(fileOutput, "w", encoding = "utf-8-sig")
     except TypeError:
         print("*Error* could not open file\n %s\n please enter a different file" % (dataFile), file = sys.stderr)
         sys.exit(1)
@@ -157,7 +157,7 @@ def jobVacancies():
                             print("%s,%s,%s,%s,%s" % (ref_Date, geo, statistics, UOM, value), file = fileOutput)
         lineNumber += 1
 
-def commute():
+def commute(fileOutput):
     path = str(Path.cwd())
      #Collecting the data file
     dataFile = path + "/../../original_data_files/Average_Commute_Time.csv"
@@ -166,7 +166,7 @@ def commute():
     year = []
     try:
         dataFile_fh = open(dataFile, encoding = "utf-8-sig")
-        fileOutput = open("Commute", "w", encoding = "utf-8-sig")
+        fileOutput = open(fileOutput, "w", encoding = "utf-8-sig")
     except TypeError:
         print("*Error* could not open file\n %s\n please enter a different file" % (dataFile), file = sys.stderr())
         sys.exit(1)

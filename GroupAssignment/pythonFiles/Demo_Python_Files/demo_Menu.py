@@ -65,20 +65,87 @@ def main():
                 print("\n\n*Error* Please enter only the integer (Whole Number) for each option i.e. either 1, 2, 3, or -1 to exit\n\n", file = sys.stderr)
                 sys.exit(1)
 
-            if user_choice2 == -1:
-                print("\n\nExiting.......\n\n")
-                break
-            elif user_choice2 == 1:
-                jobVacancies()
-                commute()
+            if user_choice2 == 1:
+                comparison_location = path + "/../../data_fields_from_data_files/commute.csv" 
+
+                jobVacancies(vacancies_location)
+                commute(comparison_location)
+                
+                question1_Graph(vacancies_location, comparison_location, output_location)
 
             elif user_choice2 == 2:
-                jobVacancies()
-                education()
+                comparison_location = path + "/../../data_fields_from_data_files/education.csv" 
+
+                jobVacancies(vacancies_location)
+                education(comparison_location)
+
+
 
             elif user_choice2 == 3:
-                jobVacancies()
-                disabilites()
+                comparison_location = path + "/../../data_fields_from_data_files/disabilites.csv" 
+
+                jobVacancies(vacancies_location)
+                disabilites(comparison_location)
+
+                question3_Graph(vacancies_location, comparison_location, output_location)
+
+            else:
+                print("\n\n*Error* Unrecognised option, please enter one of the specified options above.\n\n")
+
+
+        elif user_choice == 2:
+            print()
+        else:
+            print("\n\n*Error* Unrecognised option, please enter one of the specified options above.\n\n")
+
+    #   End of Function
+
+main()
+#call main
+
+        if user_choice == -1:
+            print("\n\nExiting.......\n\n")
+            break
+        elif user_choice == 1:
+
+            print("\nChoose Question:")
+           
+            print("Option 1: Do job vacancies affect the average commute time across the provinces?")
+            print("Option 2: Do regions with lower education levels have differing job vacancy rates compared to regions with higher education rates?")
+            print("Option 3: What is the correlation between people with disabilities who are unable to find work and the amount of job vacancies?")
+                
+            temp_user_choice2 = input("Enter 1, 2, or 3: ")
+
+            try:
+                user_choice2 = int(temp_user_choice2)
+            except ValueError:
+                print("\n\n*Error* Please enter only the integer (Whole Number) for each option i.e. either 1, 2, 3, or -1 to exit\n\n", file = sys.stderr)
+                sys.exit(1)
+
+            if user_choice2 == 1:
+                comparison_location = path + "/../../data_fields_from_data_files/commute.csv" 
+
+                jobVacancies(vacancies_location)
+                commute(comparison_location)
+                
+                question1_Graph(vacancies_location, comparison_location, output_location)
+
+            elif user_choice2 == 2:
+                comparison_location = path + "/../../data_fields_from_data_files/education.csv" 
+
+                jobVacancies(vacancies_location)
+                education(comparison_location)
+
+
+
+            elif user_choice2 == 3:
+                comparison_location = path + "/../../data_fields_from_data_files/disabilites.csv" 
+
+                jobVacancies(vacancies_location)
+                disabilites(comparison_location)
+
+                question3_Graph(vacancies_location, comparison_location, output_location)
+
 
             else:
                 print("\n\n*Error* Unrecognised option, please enter one of the specified options above.\n\n")

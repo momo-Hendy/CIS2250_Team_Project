@@ -5,12 +5,13 @@ from matplotlib import pyplot as plt
 import csv
 import numpy as np
 
-def question2_Graph(argv):
+def question2_Graph(jobVacanciesCSV, educationLevelCSV, outputGraph
+):
     lineNumber = 0
     rowNumber = 0
-    jobVacanciesCSV = argv[1]
-    educationLevelCSV = argv[2]
-    outputGraph = argv[3]
+    # jobVacanciesCSV = argv[1]
+    # educationLevelCSV = argv[2]
+    # outputGraph = argv[3]
     sumOfPeople = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     sumOfVacancies = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     averageVacancies = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
