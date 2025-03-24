@@ -29,11 +29,6 @@ def main():
     disabilites_location = ""
     output_location = "" 
 
-    vacancies_location = path + "/../../data_fields_from_data_files/education.csv" 
-    #comparison_location = path + "/../../data_fields_from_data_files/second.csv" 
-    comparison_location = ""
-    output_location = "" 
-
     print("CIS2250-W25-Project Menu")
     while user_choice != -1:
         fileOutput = ""
@@ -67,18 +62,22 @@ def main():
                 if vacancies_location == "" and commute_location == "":
                     print("\n*Error* Pre-processing for csv files has not been completed. \nplease complete Option 2: Get Data From Files first\n")
                 else:
+                    output_location = "../../Output_Graphs/Question1/" 
+
                     question1_Graph.question1_Graph(vacancies_location, commute_location, output_location)
 
             elif user_choice2 == 2:
                 if vacancies_location == "" and education_location == "":
                     print("\n*Error* Pre-processing for csv files has not been completed. \nplease complete Option 2: Get Data From Files first\n")
                 else:
+                    output_location = "../../Output_Graphs/Question2/" 
                     question2_Graph.question2_Graph(vacancies_location, education_location, output_location)
 
             elif user_choice2 == 3:
                 if vacancies_location == "" and disabilites_location == "":
                     print("\n*Error* Pre-processing for csv files has not been completed. \nplease complete Option 2: Get Data From Files first\n")
                 else:
+                    output_location = "../../Output_Graphs/Question3/" 
                     question3_Graph.question3_Graph(vacancies_location, disabilites_location, output_location)
 
             else:
