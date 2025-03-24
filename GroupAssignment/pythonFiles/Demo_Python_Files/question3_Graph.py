@@ -11,7 +11,7 @@ question3_Graph.py
 Author(s):  Wyatt Evans 1293147, Harveen Harveen 1337280, Indigo Asher 1348315
 
 Project: Milestone III
-Date of Last Update: March 23th 2025
+Date of Last Update: March 23rd 2025
 
 Functional Summary
     This function takes in three arguments

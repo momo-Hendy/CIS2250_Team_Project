@@ -1,8 +1,20 @@
 import sys
 import csv
 from pathlib import Path
+'''
+Author(s):  Wyatt Evans 1293147, Harveen Harveen 1337280, Indigo Asher 1348315
 
+Project: Milestone III
+Date of Last Update: March 23rd 2025
 
+Functional Summary
+    This file calls a few files, that are given in the original_data_files folder and collects only the nessasary information
+    that is required to answer our questions that were made in Milestone I
+
+    When collecting the files that will take in the nessasary data the code goes to the current working directory (The one this file is in)
+    then leaves this file, to go find the corrisponding file that is needed to collect the data for the option chosen by the user
+
+'''
 
 
 def education(fileOutput):

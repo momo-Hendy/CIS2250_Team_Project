@@ -4,11 +4,24 @@ demo_Menu.py
 Author(s):  Wyatt Evans 1293147, Harveen Harveen 1337280, Indigo Asher 1348315
 
 Project: Milestone III
-Date of Last Update: March 23th 2025
+Date of Last Update: March 23rd 2025
 
 Functional Summary
     File implements a menu to the project, allowing for user accesability. 
     Based on user decisions in the menu, call on 1 of 3 graph files and send which datafields they require.
+    
+    This file is the main section of our program, everything will link back to here.
+
+    First it will prompt the user for 2 options:
+
+    Option 1: Print Graph From Job Vaccancy Questions
+    Option 2: Get Data From Files
+
+    if they choose option 1 then they will be prompted for which question they want to answer, but if they haven't yet done then
+    it will automaticly go to the one that is already made if it has been made then it will use that one.
+
+    if they choose option 2 then they will be able to collect the data needed to create the graphs of option 1
+
 '''
 
 import sys
@@ -73,26 +86,31 @@ def main():
                 print("")
 
             elif user_choice2 == 1:
-                if vacancies_location == "" and commute_location == "":
-                    print("\n*Error* Pre-processing for csv files has not been completed. \nplease complete Option 2: Get Data From Files first\n")
-                else:
-                    output_location = "../../Output_Graphs/Question1/"#set output location 
+                if vacancies_location == "":
+                    vacancies_location =  path + "/../../data_fields_from_data_files/Job_Vacancies_Needed_Fields.csv"
+                if commute_location == "":
+                    commute_location = path + "/../../data_fields_from_data_files/Average_Commute_Time_In_Minutes.csv"
 
-                    question1_Graph.question1_Graph(vacancies_location, commute_location, output_location)
+                output_location = "../../Output_Graphs/Question1/"#set output location 
+                question1_Graph.question1_Graph(vacancies_location, commute_location, output_location)
 
             elif user_choice2 == 2:
-                if vacancies_location == "" and education_location == "":
-                    print("\n*Error* Pre-processing for csv files has not been completed. \nplease complete Option 2: Get Data From Files first\n")
-                else:
-                    output_location = "../../Output_Graphs/Question2/" #set output location 
-                    question2_Graph.question2_Graph(vacancies_location, education_location, output_location)
+                if vacancies_location == "":
+                    vacancies_location =  path + "/../../data_fields_from_data_files/Job_Vacancies_Needed_Fields.csv"
+                if education_location == "":
+                    education_location = path + "/../../data_fields_from_data_files/Education_Level_Needed_Fields.csv"
+
+                output_location = "../../Output_Graphs/Question2/" #set output location 
+                question2_Graph.question2_Graph(vacancies_location, education_location, output_location)
 
             elif user_choice2 == 3:
-                if vacancies_location == "" and disabilites_location == "":
-                    print("\n*Error* Pre-processing for csv files has not been completed. \nplease complete Option 2: Get Data From Files first\n")
-                else:
-                    output_location = "../../Output_Graphs/Question3/" #set output location 
-                    question3_Graph.question3_Graph(vacancies_location, disabilites_location, output_location)
+                if vacancies_location == "":
+                    vacancies_location =  path + "/../../data_fields_from_data_files/Job_Vacancies_Needed_Fields.csv"
+                if disabilites_location == "":
+                    disabilites_location = path + "/../../data_fields_from_data_files/Reasons_Not_Working_Needed_Fields.csv"
+
+                output_location = "../../Output_Graphs/Question3/" #set output location 
+                question3_Graph.question3_Graph(vacancies_location, disabilites_location, output_location)
 
             else:
                 print("\n\n*Error* Unrecognised option, please enter one of the specified options above.\n\n")
