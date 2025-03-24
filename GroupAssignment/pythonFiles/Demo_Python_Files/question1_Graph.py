@@ -5,21 +5,66 @@ from matplotlib import pyplot as plt
 # from matplotlib import ticker as ticktools
 
 '''
+question1_Graph.py
+
+Author(s):  Wyatt Evans 1293147, Harveen Harveen 1337280, Indigo Asher 1348315
+
+Project: Milestone III
+Date of Last Update: March 23th 2025
+
+Functional Summary
+    This function takes in three arguments
+    1: the location of the updated jobVacncies csv file
+    2: The location of the updated AverageCommuteTime csv file
+    3: the location of where the graph will be saved if saved
+
+    This program creates a line graph based off of data collected by statistics canada and it takes in a summerized version of that data
+    the graph that is produced is either of canada or one of the provences in canada
+
+    which then they can choose to save the plot or not and if they dont then they can view it
+
+    and it creates 2 lines
+
+    1 for the average commute time and 1 for job vacancies these are across the years 2021-2024
+'''
+
+'''
 how to get certain data out of the csv file to use for the graph
+
+By: Andrew Hamilton-Wright
+Titles: create_name_rank_plot.py, amd create_name_rank_category_plot.py
+We learned how to save the plots from here
+
+By: Python Graph Gallery
+Title: Dual Y axis with Python and Matplotlib
+https://python-graph-gallery.com/line-chart-dual-y-axis-with-matplotlib/
+To create a plot with multiple y-axis on it
 
 By: tutorialspoint
 Title: How is Seaborn used to filter and select specific rows or columns from my data?
 https://www.tutorialspoint.com/how-is-seaborn-used-to-filter-and-select-specific-rows-or-columns-from-my-data
+There were some unnessasary data still for this question but is usful for other questions
 
 By: stackoverflow
 Title: Selecting with complex criteria from pandas.DataFrame
-To use multiple conditions on the data in the csv file
 https://stackoverflow.com/questions/15315452/selecting-with-complex-criteria-from-pandas-dataframe
+To use multiple conditions on the data in the csv file
 
 By: Kimberly Fessel
 Title: Matplotlib Secondary y-Axis || Add another y-axis with Matplotlib twinx || Matplotlib Tips
 https://www.youtube.com/watch?v=_FO8jUMa65M
 In order to get a legend the right way using two different data files.
+
+By: tutorialspoint
+Title: How to repress scientific notation in factorplot Y-axis in Seaborn / Matplotlib?
+https://www.tutorialspoint.com/how-to-repress-scientific-notation-in-factorplot-y-axis-in-seaborn-matplotlib#:~:text=PythonData%20Visualization-,To%20repress%20scientific%20notation%20in%20factorplot%20Y%2Daxis%20in%20Seaborn,plain%22%20in%20ticklabel_format()method.
+to change the y-axis from scientific notation to numbers
+
+By: GeeksforGeeks
+Title: How to Convert Pandas Columns to String
+https://www.geeksforgeeks.org/how-to-convert-pandas-columns-to-string/
+had to check values in the csv files where it had to be a string
+
 
 
 '''
