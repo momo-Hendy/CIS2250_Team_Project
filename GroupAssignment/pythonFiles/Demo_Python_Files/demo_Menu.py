@@ -23,13 +23,14 @@ def main():
     user_choice = 0
     path = str(Path.cwd())
 
+    #if varibales are empty, then preprocessing has not been done
     vacancies_location = "" 
     education_location = ""
     commute_location = ""
     disabilites_location = ""
     output_location = "" 
 
-    print("CIS2250-W25-Project Menu")
+    print("\nCIS2250-W25-Project Menu\n")
     while user_choice != -1:
         fileOutput = ""
         print("Option 1: Print Graph From Job Vaccancy Questions")
@@ -44,6 +45,8 @@ def main():
         if user_choice == -1:
             print("\n\nExiting.......\n\n")
             break
+
+        #assuming preprocessing has been completed, chose questions to turn into graphs
         elif user_choice == 1:
             print("\nChoose Question:")
            
@@ -62,7 +65,7 @@ def main():
                 if vacancies_location == "" and commute_location == "":
                     print("\n*Error* Pre-processing for csv files has not been completed. \nplease complete Option 2: Get Data From Files first\n")
                 else:
-                    output_location = "../../Output_Graphs/Question1/" 
+                    output_location = "../../Output_Graphs/Question1/"#set output location 
 
                     question1_Graph.question1_Graph(vacancies_location, commute_location, output_location)
 
@@ -70,14 +73,14 @@ def main():
                 if vacancies_location == "" and education_location == "":
                     print("\n*Error* Pre-processing for csv files has not been completed. \nplease complete Option 2: Get Data From Files first\n")
                 else:
-                    output_location = "../../Output_Graphs/Question2/" 
+                    output_location = "../../Output_Graphs/Question2/" #set output location 
                     question2_Graph.question2_Graph(vacancies_location, education_location, output_location)
 
             elif user_choice2 == 3:
                 if vacancies_location == "" and disabilites_location == "":
                     print("\n*Error* Pre-processing for csv files has not been completed. \nplease complete Option 2: Get Data From Files first\n")
                 else:
-                    output_location = "../../Output_Graphs/Question3/" 
+                    output_location = "../../Output_Graphs/Question3/" #set output location 
                     question3_Graph.question3_Graph(vacancies_location, disabilites_location, output_location)
 
             else:
