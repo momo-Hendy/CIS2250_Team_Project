@@ -276,15 +276,15 @@ def question2_Graph(jobVacancies, educationLevels, outputLocation):
     fig, ax1 = plt.subplots()
     bar_width = 0.4
     x = np.arange(len(regions))
-    bar1 = ax1.bar(x - bar_width/2, sumOfPeople, bar_width, color = 'red', label = f"Education Level in {region}")
-    ax1.set_ylabel('Number of People with at least a Bachelor\'s Degree')
+    bar1 = ax1.bar(x - bar_width/2, sumOfPeople, bar_width, color = 'red', label = f"Education Level")
+    ax1.set_ylabel('Number of People with Specified Education Level')
 
     ax1.set_xticks(x)
     ax1.set_xticklabels(regions)
     ax1.tick_params(axis='x', labelrotation = 10)
 
     ax2 = ax1.twinx()
-    bar2 = ax2.bar(x + bar_width/2, averageVacancies, bar_width, color = 'blue', label = f"Job Vacancies in {region}")
+    bar2 = ax2.bar(x + bar_width/2, averageVacancies, bar_width, color = 'blue', label = f"Job Vacancies")
     ax2.set_ylabel('Number of Job Vacancies')
 
 
